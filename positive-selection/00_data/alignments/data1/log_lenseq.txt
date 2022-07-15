@@ -1,0 +1,12 @@
+Taxa: Chimpanzee	Length of sequence: 2199
+Taxa: Human	Length of sequence: 2199
+Taxa: Orangutan	Length of sequence: 2199
+Taxa: Rhesus_macaque	Length of sequence: 2199
+Taxa: Dog	Length of sequence: 2199
+Taxa: Cow	Length of sequence: 2199
+Taxa: Sheep	Length of sequence: 2199
+Taxa: Pig	Length of sequence: 2199
+Taxa: Mouse	Length of sequence: 2199
+Taxa: Rat	Length of sequence: 2199
+Taxa: Chicken	Length of sequence: 2199
+Taxa: Duck	Length of sequence: 2199

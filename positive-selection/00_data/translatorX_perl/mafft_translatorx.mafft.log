@@ -1,0 +1,62 @@
+outputhat23=16
+treein = 0
+compacttree = 0
+stacksize: 8192 kb
+rescale = 1
+All-to-all alignment.
+    0 / 12    1 / 12    2 / 12    3 / 12    4 / 12    5 / 12    6 / 12    7 / 12    8 / 12    9 / 12   10 / 12tbfast-pair (aa) Version 7.481
+alg=L, model=BLOSUM62, 2.00, -0.10, +0.10, noshift, amax=0.0
+0 thread(s)
+
+outputhat23=16
+Loading 'hat3.seed' ... 
+done.
+Writing hat3 for iterative refinement
+rescale = 1
+Gap Penalty = -1.53, +0.00, +0.00
+tbutree = 1, compacttree = 0
+Constructing a UPGMA tree ... 
+    0 / 12   10 / 12
+done.
+
+Progressive alignment ... 
+STEP     1 /11 STEP     2 /11 STEP     3 /11 STEP     4 /11 STEP     5 /11 STEP     6 /11 STEP     7 /11 STEP     8 /11 STEP     9 /11 STEP    10 /11 STEP    11 /11 
+done.
+tbfast (aa) Version 7.481
+alg=A, model=BLOSUM62, 1.53, -0.00, -0.00, noshift, amax=0.0
+1 thread(s)
+
+minimumweight = 0.000010
+autosubalignment = 0.000000
+nthread = 0
+randomseed = 0
+blosum 62 / kimura 200
+poffset = 0
+niter = 16
+sueff_global = 0.100000
+nadd = 16
+Loading 'hat3' ... done.
+rescale = 1
+
+    0 / 12   10 / 12
+Segment   1/  1    1- 739
+STEP 001-001-0  identical.   STEP 001-001-1  identical.   STEP 001-002-0  identical.   STEP 001-002-1  identical.   STEP 001-003-0  identical.   STEP 001-003-1  identical.   STEP 001-004-0  identical.   STEP 001-004-1  identical.   STEP 001-005-0  identical.   STEP 001-005-1  identical.   STEP 001-006-0  identical.   STEP 001-006-1  identical.   STEP 001-007-0  identical.   STEP 001-007-1  identical.   STEP 001-008-0  identical.   STEP 001-008-1  accepted.STEP 001-009-0  rejected.STEP 001-009-1  identical.   STEP 001-010-0  accepted.STEP 001-010-1  identical.   STEP 001-011-1  accepted.STEP 002-011-1  identical.   STEP 002-010-0  accepted.STEP 002-010-1  rejected.STEP 002-009-0  accepted.STEP 002-009-1  identical.   STEP 002-008-0  identical.   STEP 002-008-1  identical.   STEP 002-007-0  identical.   STEP 002-007-1  identical.   STEP 002-006-0  identical.   STEP 002-006-1  identical.   STEP 002-005-0  identical.   STEP 002-005-1  identical.   STEP 002-004-0  identical.   STEP 002-004-1  identical.   STEP 002-003-0  identical.   STEP 002-003-1  identical.   STEP 002-002-0  identical.   STEP 002-002-1  identical.   STEP 002-001-0  identical.   STEP 002-001-1  identical.   STEP 003-001-0  identical.   STEP 003-001-1  identical.   STEP 003-002-0  identical.   STEP 003-002-1  identical.   STEP 003-003-0  identical.   STEP 003-003-1  identical.   STEP 003-004-0  identical.   
+Converged.
+
+done
+dvtditr (aa) Version 7.481
+alg=A, model=BLOSUM62, 1.53, -0.00, -0.00, noshift, amax=0.0
+0 thread(s)
+
+
+Strategy:
+ L-INS-i (Probably most accurate, very slow)
+ Iterative refinement method (<16) with LOCAL pairwise alignment information
+
+If unsure which option to use, try 'mafft --auto input > output'.
+For more information, see 'mafft --help', 'mafft --man' and the mafft page.
+
+The default gap scoring scheme has been changed in version 7.110 (2013 Oct).
+It tends to insert more gaps into gap-rich regions than previous versions.
+To disable this change, add the --leavegappyregion option.
+

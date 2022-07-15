@@ -27,7 +27,7 @@ leading to the so-called sites test and branch test.
 In this repository, you will find the data, the code, and step-by-step guidelines for reproducing
 the results in the `CODEML` protocol ([Álvarez-Carretero et al. (submitted)]()). 
 We performed all positive selection analyses with `CODEML`, in the 
-[PAML v4.9j package](http://abacus.gene.ucl.ac.uk/software/paml.html) 
+[PAML v4.10.5 package](http://abacus.gene.ucl.ac.uk/software/paml.html) 
 ([Yang 2007](https://academic.oup.com/mbe/article/24/8/1586/1103731)). 
 
 We use the alignment and tree files for the myxovirus gene sequences from ten mammal species 
@@ -59,6 +59,6 @@ of the program outputs, enabling you to apply similar analyses to your own data.
 If you use any of the code we provide in this GitHub repository or consult the protocol for your own 
 analyses, please cite:   
 
-   * [Álvarez-Carretero, S., Kapli, P. Yang, Z. Beginner's guide on the use of PAML to detect positive selection, Mol Biol Evol. (submitted)]().   
+   * [Álvarez-Carretero, S., Kapli, P., Yang, Z. Beginner's guide on the use of PAML to detect positive selection, Mol Biol Evol. (submitted)]().   
    * [Yang Z. 2007. PAML 4: Phylogenetic analysis by maximum likelihood. Mol Biol Evol 24:1586-1591](https://academic.oup.com/mbe/article/24/8/1586/1103731).   
    

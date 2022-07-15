@@ -1,13 +1,16 @@
 # Brief introduction: branch models 
-Branch models assume that positive selection may occur
-at specific sites in specific branches of the phylogeny. 
+Branch models assume that $\omega$ varies across the branches of the tree
+([Yang 1998](https://pubmed.ncbi.nlm.nih.gov/9580986/),
+[Yang and Nielsen 1998](https://link.springer.com/article/10.1007/PL00006320)). 
 Consequently, we need to specify which branches in our phylogeny 
-are to have different $\omega$ values. As we do not allow
-$\omega$ to vary across sites, we will select two branches that correspond to the two lineages 
-for which we want to test for positive selection: the duck and the chicken lineages. We will 
-use the snippet code below to generate two copies of the main tree file, 
-[`myxovirus.tree`](../myxovirus.tree), and add the tag `#1` to identify these two lineages,
-one tag per tree:
+are to have different $\omega$ values. In this example, we will run two 
+analyses with `CODEML`: one in which the chicken lineage is labelled as the foreground branch (i.e., branch 
+that will have a different value of $\omega) and another with the 
+duck lineage instead. 
+
+Before we get started with the tutorial, we need to generate two copies of the main tree file, 
+[`myxovirus.tree`](../myxovirus.tree), and add the tag `#1` to identify the foreground 
+branch in each case:   
 
 ```sh 
 # Run from `02_branch_models`
@@ -20,10 +23,9 @@ sed -i 's/Duck\_Mx/Duck\_Mx\ \#1/' ../myxovirus_branch_duck.tree
 ```
 
 # Inference with `CODEML`
-We will run two analyses: one having the branch leading to the duck lineage selected 
-and another with the chicken lineage.
-
-First, we will create the corresponding main directories:
+Given that we want to test two hypotheses (i.e., one in which the foreground lineage is the 
+duck lineage and another with the chicken lineage), we create two different directories 
+to run the branch model under the two hypotheses:
 
 ```sh
 # Run from `02_branch_models`
@@ -31,18 +33,18 @@ mkdir -p Branch_model_chicken/CODEML Branch_model_duck/CODEML
 ```
 
 ## Setting the control file 
-We will use the template provided in this GitHub repository to learn how to 
-specify the different options. We will use the command `sed` to find the 
-variable names we defined in the template file so we can replace them
-with the correct value for each option: 
+We use the [template control file](../../templates/template_CODEML.ctl) provided in this GitHub 
+repository ([here](../../templates/). Then, we use the command `sed` to find the 
+variable names defined in the template file so we can replace them
+with the correct value for each option:
 
 ```sh
-# Relative paths from `02_branch_models` directory
+# Run from `02_branch_models`
 
 # 1. Copy the template control file that 
 # we will be later modifying
-cp ../../../templates/template_CODEML.ctl Branch_model_chicken/CODEML/codeml-branch.ctl 
-cp ../../../templates/template_CODEML.ctl Branch_model_duck/CODEML/codeml-branch.ctl 
+cp ../../templates/template_CODEML.ctl Branch_model_chicken/CODEML/codeml-branch.ctl 
+cp ../../templates/template_CODEML.ctl Branch_model_duck/CODEML/codeml-branch.ctl 
 
 # 2. Replace variable names with the 
 # values needed to run the analysis 
@@ -79,8 +81,17 @@ sed -i 's/INITOME/0\.5/' $i/CODEML/codeml-branch.ctl
 done
 ```  
 
+**NOTE:** In this example, we have not copied the alignment or the tree files 
+in the working directory `Model_M0`. Instead, we have specified the path to 
+these files as you can see in step 2.1 (see code snippet above). We have decided
+to do this so we do not keep several copies of the same input files to carry out the different
+tests for positive selection in different directories. If you were to run this analysis while having 
+the two input files in the main directory, then you would not need to type the relative path to 
+these files in the control file as shown above (e.g., `../../../myxovirus.aln` or `../../../myxovirus.tree` in this example) but
+only the file names (e.g., `myxovirus.aln` or `myxovirus.tree`).
+
 ## Running `CODEML`
-Now that you have the control file, you only need to run `CODEML`. 
+Now that we have the control file for each analysis, we only need to run `CODEML`. 
 If you want to use the compiled version of `CODEML` provided in 
 this repository, you can use the code provided in the snippet below.
 Otherwise, please modify the code so you can execute 
@@ -95,7 +106,7 @@ do
 cd $i/CODEML/
 # Execute `CODEML`
 name=$( echo $i | sed 's/..*\_//' )
-../../../../../src/CODEML/codeml4.9j codeml-branch.ctl | tee logfile_codeml-branch_$name.txt
+../../../../src/CODEML/codeml4.10.5 codeml-branch.ctl | tee logfile_codeml-branch_$name.txt
 # Remove unnecessary files 
 rm 2N*
 # Go back to home_dir 
@@ -104,30 +115,33 @@ done
 ```
 
 # Likelihood Ratio Test
-Now, we can test if the branch model fits the data better than the null model, the `M0` model, which 
-we previously ran. The results for the `M0` model can be found in the `../00_homogenous_model/M0_model` 
-directory.
+Now, we can test if the branch model fits the data better than the null model (`M0` model), which 
+we previously ran (i.e., the results for the `M0` model can be found in the `../00_homogenous_model/Model_M0` 
+directory).
 
-First, we need to extract those lines that have `lnL` and then 
-remove unnecessary information to keep only the `lnL` value. We will do this for both 
-analyses:
+First, we extract those lines that have the `lnL` term and then 
+remove unnecessary information to keep only the `lnL` value. We will do this for the three analyses 
+which likelihood values we want to compare:
 
 ```sh
 # Run from `02_branch_models`
 grep 'lnL' Branch_model_chicken/CODEML/out_chicken_branch.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' > lnL_branch_mods.txt
 grep 'lnL' Branch_model_duck/CODEML/out_duck_branch.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' >> lnL_branch_mods.txt
-grep 'lnL' ../00_homogenous_model/M0_model/out_M0.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' >> lnL_branch_mods.txt
+grep 'lnL' ../00_homogenous_model/Model_M0/out_M0.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' >> lnL_branch_mods.txt
 ```
 
-The R script `Find_bestmodel.R` to compute LRT can be found in the `02_branch_models` directory.
-The results are already printed out there in commented lines.
+The R script [`Find_bestmodel.R`](Find_bestmodel.R) is used to compute the LRT. You can also find 
+the results for each test written there as commented lines.
 
-In addition, we can extract the $\omega$ ratios when running the branch model and 
-having the chicken lineage as a foreground lineage and when the foreground lineage 
-is the duck: 
+In addition, we can extract the $\omega$ ratios when the chicken lineage is set as the 
+foreground lineage and then when the chicken is the foreground lineage:
 
 ```sh
 # Run from `02_branch_models`
-grep 'w ratios' -A2 Branch_model_chicken/CODEML/out_chicken_branch.txt | sed -n '2,2p' > Branch_model_chicken/tree_chicken_wratios.tree
-grep 'w ratios' -A2 Branch_model_duck/CODEML/out_duck_branch.txt | sed -n '2,2p' > Branch_model_duck/tree_duck_wratios.tree
+w_c_back=$( grep 'w (dN/dS) for branches'  Branch_model_chicken/CODEML/out_chicken_branch.txt | sed 's/..*: *//' | sed 's/ ..*//' )
+w_c_for=$( grep 'w (dN/dS) for branches'  Branch_model_chicken/CODEML/out_chicken_branch.txt | sed 's/..* //')
+w_d_back=$( grep 'w (dN/dS) for branches'  Branch_model_duck/CODEML/out_duck_branch.txt | sed 's/..*: *//' | sed 's/ ..*//' )
+w_d_for=$( grep 'w (dN/dS) for branches'  Branch_model_duck/CODEML/out_duck_branch.txt | sed 's/..* //')
+printf "w_back_chicken\tw_fore_chicken\tw_back_duck\tw_fore_duck\n" > w_est_branches.tsv 
+printf $w_c_back"\t"$w_c_for"\t"$w_d_back"\t"$w_d_for"\n" >> w_est_branches.tsv 
 ```

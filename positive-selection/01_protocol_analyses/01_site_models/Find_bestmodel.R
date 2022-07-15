@@ -7,7 +7,7 @@ rm( list = ls( ) )
 # SET ENVIRONMENT #
 #-----------------#
 library( rstudioapi ) 
-# Get the path to current open R script and find main dir "00_Gene_filtering"
+# Get the path to current open R script and find main dir
 path_to_file <- getActiveDocumentContext()$path
 wd <- paste( dirname( path_to_file ), "/", sep = "" )
 setwd( wd )
@@ -24,40 +24,40 @@ lnL_vals <- read.table( file = "Site_models/lnL_sites.txt", sep= " ", stringsAsF
 #     M0 < M1a < M2a 
 #     M7 < M8 
 
-# First, we will compare M1a to the null. If the null is rejected,
-# then we can compare M1a to M2a.
+# First, we will compare M1a (alternative) to the M0 (null). 
+# If the null is rejected, then we can compare M1a (null) to 
+# M2a (alternative).
 ## M0 vs M1a ##
 diff_M0vsM1a <- 2*( lnL_vals$Model_1a[1] - lnL_vals$Model_0[1] )
 # diff = 559.2598
 pchisq( diff_M0vsM1a, df = 1, lower.tail=F )
 # p-val = 1.217966e-123 < 0.05
 Chisq.crit.M0vsM1a <- qchisq( p = 0.95, df = 1 )
-# alpha critical value = 3.841459
+# alpha critical value at 5% = 3.841459
 
-# Now, we can compare M1a (Nearly Neutral) against M2a (Positive Selection) because M1a is 
-# a better fit to the data than the null model M0. This is 
-# the first test for positive selection.
+# As M1a is a better fit to the data than M0, we can compare M1a 
+# (Nearly Neutral) against M2a (Positive Selection). 
 ## M1 vs M2a ##
 diff_M1avsM2a <- 2*( lnL_vals$Model_2a[1] - lnL_vals$Model_1a[1] )
 # diff = 0
 pchisq( diff_M1avsM2a, df = 2, lower.tail=F )
 # p-val = 1 > 0
 Chisq.crit.M1vsM2a <- qchisq( p = 0.95, df = 2 )
-# alpha critical value = 5.991465
+# alpha critical value at 5% level = 5.991465
 Chisq.crit.M1vsM2a_2 <- qchisq( p = 0.99, df = 2 )
-# alpha critical value = 9.21034
+# alpha critical value a5 1% level = 9.21034
 
-# A second test for positive selection can be run by 
-# comparing M7 (Beta) to M8 (Beta&omega).
+# In addition, we can run an additional comparison between 
+# M7 (beta) and M8 (beta&omega).
 ## M7 vs M8 ##
 diff_M7vsM8 <- 2*( lnL_vals$Model_8[1] - lnL_vals$Model_7[1] )
 # 12.5435
 pchisq( diff_M7vsM8, df = 2, lower.tail=F )
 # p-val = 0.001888922 < 0.05
 Chisq.crit.M7vsM8 <- qchisq( p = 0.95, df = 2 )
-# alpha critical value = 5.991465
+# alpha critical value at 5% level = 5.991465
 Chisq.crit.M7vsM8_2 <- qchisq( p = 0.99, df = 2 )
-# alpha critical value = 9.21034
+# alpha critical value at 1% level = 9.21034
 
 # 3. Plot results 
 par( mfrow = c(1, 3) )

@@ -1,0 +1,191 @@
+
+CODONML in paml version 4.10.5, March 2022
+
+----------------------------------------------
+Phe F TTT | Ser S TCT | Tyr Y TAT | Cys C TGT
+      TTC |       TCC |       TAC |       TGC
+Leu L TTA |       TCA | *** * TAA | *** * TGA
+      TTG |       TCG |       TAG | Trp W TGG
+----------------------------------------------
+Leu L CTT | Pro P CCT | His H CAT | Arg R CGT
+      CTC |       CCC |       CAC |       CGC
+      CTA |       CCA | Gln Q CAA |       CGA
+      CTG |       CCG |       CAG |       CGG
+----------------------------------------------
+Ile I ATT | Thr T ACT | Asn N AAT | Ser S AGT
+      ATC |       ACC |       AAC |       AGC
+      ATA |       ACA | Lys K AAA | Arg R AGA
+Met M ATG |       ACG |       AAG |       AGG
+----------------------------------------------
+Val V GTT | Ala A GCT | Asp D GAT | Gly G GGT
+      GTC |       GCC |       GAC |       GGC
+      GTA |       GCA | Glu E GAA |       GGA
+      GTG |       GCG |       GAG |       GGG
+----------------------------------------------
+Nice code, uuh?
+ns = 12  	ls = 1989
+Reading sequences, sequential format..
+Reading seq # 1: Rhesus_macaque_Mx       Reading seq # 2: Orangutan_Mx       Reading seq # 3: Chimpanzee_Mx       Reading seq # 4: Human_Mx       Reading seq # 5: Dog_Mx       Reading seq # 6: Pig_Mx       Reading seq # 7: Cow_Mx       Reading seq # 8: Sheep_Mx       Reading seq # 9: Rat_Mx       Reading seq #10: Mouse_Mx       Reading seq #11: Chicken_Mx       Reading seq #12: Duck_Mx       
+Sequences read..
+Counting site patterns..  0:00
+Compressing,    632 patterns at    663 /    663 sites (100.0%),  0:00
+Collecting fpatt[] & pose[],    632 patterns at    663 /    663 sites (100.0%),  0:00
+1 ambiguous codons are seen in the data:
+ ---
+Counting codons..
+NG distances for seqs.:
+   1   2   3   4   5   6   7   8   9  10  11  12
+
+      528 bytes for distance
+   616832 bytes for conP
+    20224 bytes for fhK
+  5000000 bytes for space
+
+2 branch types are in tree. Stop if wrong.
+Tree is 
+((((((Chimpanzee_Mx, Human_Mx), Orangutan_Mx), Rhesus_macaque_Mx), (((Sheep_Mx, Cow_Mx), Pig_Mx), Dog_Mx)), (Mouse_Mx, Rat_Mx)), Duck_Mx #1, Chicken_Mx);
+
+TREE #  1
+((((((3, 4), 2), 1), (((8, 7), 6), 5)), (10, 9)), 12, 11);   MP score: -1
+ns = 12  nnode = 22
+   dad  node   nson:   sons
+    15     0      0: 
+    16     1      0: 
+    17     2      0: 
+    17     3      0: 
+    18     4      0: 
+    19     5      0: 
+    20     6      0: 
+    20     7      0: 
+    21     8      0: 
+    21     9      0: 
+    12    10      0: 
+    12    11      0: 
+    -1    12      3:  13 11 10
+    12    13      2:  14 21
+    13    14      2:  15 18
+    14    15      2:  16  0
+    15    16      2:  17  1
+    16    17      2:   2  3
+    14    18      2:  19  4
+    18    19      2:  20  5
+    19    20      2:   7  6
+    13    21      2:   9  8
+((((((3, 4), 2), 1), (((8, 7), 6), 5)), (10, 9)), 12, 11);
+((((((Chimpanzee_Mx, Human_Mx), Orangutan_Mx), Rhesus_macaque_Mx), (((Sheep_Mx, Cow_Mx), Pig_Mx), Dog_Mx)), (Mouse_Mx, Rat_Mx)), Duck_Mx, Chicken_Mx);
+((((((Chimpanzee_Mx: 0.000000, Human_Mx: 0.000000): 0.000000, Orangutan_Mx: 0.000000): 0.000000, Rhesus_macaque_Mx: 0.000000): 0.000000, (((Sheep_Mx: 0.000000, Cow_Mx: 0.000000): 0.000000, Pig_Mx: 0.000000): 0.000000, Dog_Mx: 0.000000): 0.000000): 0.000000, (Mouse_Mx: 0.000000, Rat_Mx: 0.000000): 0.000000): 0.000000, Duck_Mx: 0.000000, Chicken_Mx: 0.000000);
+
+   1   65.174872
+   2   51.753124
+   3   51.281346
+   4   51.170253
+   5   51.150516
+   6   51.147004
+   7   51.146171
+   8   51.145907
+   9   51.145901
+  3084160 bytes for conP, adjusted
+
+    0.810150    0.151654    0.200010    0.004177    0.059745    0.064408    0.034154    0.048952    0.116528    0.000000    0.113124    0.085216    0.055216    0.026583    0.157530    0.213897    0.143630    0.106021    0.148809    0.094514    0.326420    1.000000    0.751449    0.866495    1.118895    1.017156    0.181782    0.250161    1.908838
+
+ntime & nrate & np:    21     6    29
+
+Bounds (np=29):
+   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000004   0.000100   0.000100   0.000100   0.000100 -99.000000 -99.000000   0.000001   1.000000
+  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000  50.000000 999.000000 999.000000 999.000000 999.000000  99.000000  99.000000   1.000000 999.000000
+branch=0  freq=0.697490 w0 = 0.250161
+branch=0  freq=0.302510 w1 = 1.000000
+			Qfactor for branch 0 = 0.877225
+branch=1  freq=0.556999 w0 = 0.250161
+branch=1  freq=0.241577 w1 = 1.000000
+branch=1  freq=0.201423 w2 = 1.908838
+			Qfactor for branch 1 = 0.636354
+w[0] = 0.250161
+w[1] = 1.000000
+w[2] = 1.908838
+
+np =    29
+lnL0 = -12662.017220
+
+Iterating by ming2
+Initial: fx= 12662.017220
+x=  0.81015  0.15165  0.20001  0.00418  0.05975  0.06441  0.03415  0.04895  0.11653  0.00000  0.11312  0.08522  0.05522  0.02658  0.15753  0.21390  0.14363  0.10602  0.14881  0.09451  0.32642  1.00000  0.75145  0.86649  1.11890  1.01716  0.18178  0.25016  1.90884
+
+  1 h-m-p  0.0000 0.0001 3078.9307 ++    12434.857072  m 0.0001    34 | 0/29
+  2 h-m-p  0.0000 0.0000 199598.0601 +YYCCC 12411.091774  4 0.0000    73 | 0/29
+  3 h-m-p  0.0000 0.0002 2425.6180 +YCYC 12375.144175  3 0.0000   110 | 0/29
+  4 h-m-p  0.0000 0.0002 1075.9820 +CYCCC 12284.082568  4 0.0002   150 | 0/29
+  5 h-m-p  0.0001 0.0003 1306.9532 +YYCCCC 12204.384808  5 0.0002   191 | 0/29
+  6 h-m-p  0.0000 0.0001 2669.7756 +YCCC 12170.277066  3 0.0001   229 | 0/29
+  7 h-m-p  0.0001 0.0003 661.3167 +YYCCC 12143.712030  4 0.0002   268 | 0/29
+  8 h-m-p  0.0000 0.0002 771.6447 +YYCCC 12129.009629  4 0.0001   307 | 0/29
+  9 h-m-p  0.0000 0.0003 1856.0858 +YC   12103.956195  1 0.0001   341 | 0/29
+ 10 h-m-p  0.0005 0.0026 420.8963 YCCC  12068.410760  3 0.0009   378 | 0/29
+ 11 h-m-p  0.0005 0.0026 272.0545 CCC   12057.104288  2 0.0006   414 | 0/29
+ 12 h-m-p  0.0002 0.0011 225.8677 CCCCC 12053.898473  4 0.0003   454 | 0/29
+ 13 h-m-p  0.0004 0.0048 140.0844 CCC   12050.751505  2 0.0006   490 | 0/29
+ 14 h-m-p  0.0015 0.0077  54.9188 CCCC  12048.762733  3 0.0017   528 | 0/29
+ 15 h-m-p  0.0005 0.0037 198.9831 CCC   12046.308687  2 0.0007   564 | 0/29
+ 16 h-m-p  0.0014 0.0126  97.2497 YCCC  12045.142878  3 0.0008   601 | 0/29
+ 17 h-m-p  0.0027 0.0410  27.7219 YCC   12044.647670  2 0.0016   636 | 0/29
+ 18 h-m-p  0.0022 0.0356  19.7038 CC    12044.105564  1 0.0027   670 | 0/29
+ 19 h-m-p  0.0016 0.0253  33.2315 CCC   12043.213085  2 0.0024   706 | 0/29
+ 20 h-m-p  0.0028 0.0720  29.0729 +YCC  12039.972246  2 0.0090   742 | 0/29
+ 21 h-m-p  0.0021 0.0122 124.8398 CCC   12036.283939  2 0.0022   778 | 0/29
+ 22 h-m-p  0.0036 0.0215  75.5251 YCC   12033.349110  2 0.0027   813 | 0/29
+ 23 h-m-p  0.0019 0.0095  96.0718 CCCC  12030.431142  3 0.0020   851 | 0/29
+ 24 h-m-p  0.0047 0.0289  41.6039 CCC   12025.820104  2 0.0073   887 | 0/29
+ 25 h-m-p  0.0030 0.0148  35.3754 YCC   12024.994437  2 0.0018   922 | 0/29
+ 26 h-m-p  0.0019 0.0268  32.3703 +CYC  12022.401342  2 0.0072   958 | 0/29
+ 27 h-m-p  0.0120 0.0824  19.4411 CCC   12020.665709  2 0.0112   994 | 0/29
+ 28 h-m-p  0.0130 0.1166  16.6818 YCCCC 12017.347220  4 0.0279  1033 | 0/29
+ 29 h-m-p  0.1450 1.9707   3.2054 +CCCC 11999.721484  3 0.6343  1072 | 0/29
+ 30 h-m-p  1.5488 7.7442   1.0041 CCC   11991.865784  2 1.5025  1108 | 0/29
+ 31 h-m-p  1.2158 6.0790   0.8751 CCC   11988.699006  2 1.3918  1144 | 0/29
+ 32 h-m-p  1.6000 8.0000   0.6702 YCC   11987.390444  2 1.1790  1208 | 0/29
+ 33 h-m-p  1.1429 8.0000   0.6914 YCC   11985.568511  2 2.4405  1272 | 0/29
+ 34 h-m-p  1.4645 8.0000   1.1522 YCCC  11982.690231  3 2.7009  1338 | 0/29
+ 35 h-m-p  1.3167 8.0000   2.3634 YYCCC 11978.574291  4 2.1715  1376 | 0/29
+ 36 h-m-p  1.4774 7.6191   3.4738 CCCC  11972.517417  3 2.3594  1414 | 0/29
+ 37 h-m-p  1.6000 8.0000   5.0603 CYC   11967.671131  2 1.7762  1449 | 0/29
+ 38 h-m-p  1.2623 8.0000   7.1205 YCCC  11963.868887  3 1.8851  1486 | 0/29
+ 39 h-m-p  1.3456 8.0000   9.9751 YCC   11959.984954  2 2.2496  1521 | 0/29
+ 40 h-m-p  1.6000 8.0000  13.6230 CCC   11957.628081  2 1.5638  1557 | 0/29
+ 41 h-m-p  1.2367 8.0000  17.2267 YCCC  11955.254327  3 2.0767  1594 | 0/29
+ 42 h-m-p  1.6000 8.0000  16.3004 CCC   11953.971031  2 2.2560  1630 | 0/29
+ 43 h-m-p  1.6000 8.0000  12.9341 C     11953.697266  0 1.6000  1662 | 0/29
+ 44 h-m-p  1.6000 8.0000   6.7483 YC    11953.656204  1 1.1448  1695 | 0/29
+ 45 h-m-p  1.6000 8.0000   2.3826 YC    11953.650505  1 1.2244  1728 | 0/29
+ 46 h-m-p  1.6000 8.0000   0.2877 Y     11953.650090  0 1.2762  1760 | 0/29
+ 47 h-m-p  1.6000 8.0000   0.0140 Y     11953.650057  0 1.1454  1821 | 0/29
+ 48 h-m-p  1.6000 8.0000   0.0086 C     11953.650055  0 1.4758  1882 | 0/29
+ 49 h-m-p  1.6000 8.0000   0.0067 Y     11953.650055  0 2.8465  1943 | 0/29
+ 50 h-m-p  1.6000 8.0000   0.0021 ++    11953.650053  m 8.0000  2004 | 0/29
+ 51 h-m-p  0.9961 8.0000   0.0171 +C    11953.650042  0 4.2800  2066 | 0/29
+ 52 h-m-p  1.6000 8.0000   0.0385 ++    11953.649934  m 8.0000  2127 | 0/29
+ 53 h-m-p  0.1967 8.0000   1.5682 ++Y   11953.649363  0 2.1807  2190 | 0/29
+ 54 h-m-p  1.6000 8.0000   1.5336 ++    11953.645042  m 8.0000  2222 | 0/29
+ 55 h-m-p  0.1703 8.0000  72.0395 ++C   11953.621377  0 2.7250  2256 | 0/29
+ 56 h-m-p  1.6000 8.0000  25.2597 CC    11953.607758  1 2.3494  2290 | 0/29
+ 57 h-m-p  1.0271 8.0000  57.7806 +YC   11953.599307  1 3.0852  2324 | 0/29
+ 58 h-m-p  0.9724 4.8622  72.7293 ++    11953.591289  m 4.8622  2356 | 1/29
+ 59 h-m-p  1.3393 8.0000   0.0156 YC    11953.589638  1 1.0257  2389 | 1/29
+ 60 h-m-p  1.6000 8.0000   0.0003 Y     11953.589629  0 1.1335  2449 | 1/29
+ 61 h-m-p  1.6000 8.0000   0.0001 Y     11953.589629  0 1.2254  2509 | 1/29
+ 62 h-m-p  1.6000 8.0000   0.0000 Y     11953.589629  0 1.0265  2569 | 1/29
+ 63 h-m-p  1.6000 8.0000   0.0000 Y     11953.589629  0 1.1401  2629
+Out..
+lnL  = -11953.589629
+2630 lfun, 13150 eigenQcodon, 220920 P(t)
+
+BEBing (dim = 4).  This may take many minutes.
+Trying to get 0.6M memory in lfunNSsites_ACD
+
+Calculating f(x_h|w) for 121 w's
+	   10 / 121 sets.  w for branches:  0.9500 0.9500 lnfX = -12907.7450	   20 / 121 sets.  w for branches:  0.0500 9.5000 lnfX = -13780.7483	   30 / 121 sets.  w for branches:  0.1500 9.5000 lnfX = -12724.4998	   40 / 121 sets.  w for branches:  0.2500 9.5000 lnfX = -12407.1479	   50 / 121 sets.  w for branches:  0.3500 9.5000 lnfX = -12310.8912	   60 / 121 sets.  w for branches:  0.4500 9.5000 lnfX = -12319.7753	   70 / 121 sets.  w for branches:  0.5500 9.5000 lnfX = -12387.5817	   80 / 121 sets.  w for branches:  0.6500 9.5000 lnfX = -12491.1843	   90 / 121 sets.  w for branches:  0.7500 9.5000 lnfX = -12617.4800	  100 / 121 sets.  w for branches:  0.8500 9.5000 lnfX = -12758.4495	  110 / 121 sets.  w for branches:  0.9500 9.5000 lnfX = -12908.9255	  120 / 121 sets.  w for branches:  1.0000 9.5000 lnfX = -12986.6014	  121 / 121 sets.  w for branches:  1.0000 10.5000 lnfX = -12986.7574
+Time:  3:48
+Calculating the marginal likelihood f(X).
+	1000 / 10000 grid points,  3:48	2000 / 10000 grid points,  3:48	3000 / 10000 grid points,  3:48	4000 / 10000 grid points,  3:48	5000 / 10000 grid points,  3:48	6000 / 10000 grid points,  3:48	7000 / 10000 grid points,  3:48	8000 / 10000 grid points,  3:49	9000 / 10000 grid points,  3:49	10000 / 10000 grid points,  3:49	log(fX) = -11991.769581  S = -11395.207949  -594.157464
+Calculating f(w_k|X), posterior for site classes for each site.  Slow!
+	did  10 / 632 site patterns   3:49	did  20 / 632 site patterns   3:49	did  30 / 632 site patterns   3:49	did  40 / 632 site patterns   3:49	did  50 / 632 site patterns   3:49	did  60 / 632 site patterns   3:49	did  70 / 632 site patterns   3:49	did  80 / 632 site patterns   3:49	did  90 / 632 site patterns   3:49	did 100 / 632 site patterns   3:49	did 110 / 632 site patterns   3:49	did 120 / 632 site patterns   3:49	did 130 / 632 site patterns   3:49	did 140 / 632 site patterns   3:49	did 150 / 632 site patterns   3:49	did 160 / 632 site patterns   3:49	did 170 / 632 site patterns   3:49	did 180 / 632 site patterns   3:49	did 190 / 632 site patterns   3:49	did 200 / 632 site patterns   3:49	did 210 / 632 site patterns   3:49	did 220 / 632 site patterns   3:49	did 230 / 632 site patterns   3:49	did 240 / 632 site patterns   3:49	did 250 / 632 site patterns   3:49	did 260 / 632 site patterns   3:49	did 270 / 632 site patterns   3:49	did 280 / 632 site patterns   3:49	did 290 / 632 site patterns   3:49	did 300 / 632 site patterns   3:49	did 310 / 632 site patterns   3:49	did 320 / 632 site patterns   3:49	did 330 / 632 site patterns   3:49	did 340 / 632 site patterns   3:49	did 350 / 632 site patterns   3:49	did 360 / 632 site patterns   3:49	did 370 / 632 site patterns   3:49	did 380 / 632 site patterns   3:49	did 390 / 632 site patterns   3:49	did 400 / 632 site patterns   3:49	did 410 / 632 site patterns   3:49	did 420 / 632 site patterns   3:49	did 430 / 632 site patterns   3:49	did 440 / 632 site patterns   3:49	did 450 / 632 site patterns   3:49	did 460 / 632 site patterns   3:49	did 470 / 632 site patterns   3:49	did 480 / 632 site patterns   3:49	did 490 / 632 site patterns   3:49	did 500 / 632 site patterns   3:49	did 510 / 632 site patterns   3:49	did 520 / 632 site patterns   3:49	did 530 / 632 site patterns   3:49	did 540 / 632 site patterns   3:49	did 550 / 632 site patterns   3:49	did 560 / 632 site patterns   3:49	did 570 / 632 site patterns   3:49	did 580 / 632 site patterns   3:49	did 590 / 632 site patterns   3:49	did 600 / 632 site patterns   3:49	did 610 / 632 site patterns   3:49	did 620 / 632 site patterns   3:49	did 630 / 632 site patterns   3:49	did 632 / 632 site patterns   3:49
+Time used:  3:50

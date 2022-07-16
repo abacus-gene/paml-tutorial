@@ -1,0 +1,352 @@
+**************************************************************
+ ******** CLUSTAL 2.1 Multiple Sequence Alignments  ********
+ **************************************************************
+
+
+     1. Sequence Input From Disc
+     2. Multiple Alignments
+     3. Profile / Structure Alignments
+     4. Phylogenetic trees
+
+     S. Execute a system command
+     H. HELP
+     X. EXIT (leave program)
+
+
+Your choice: 
+
+Sequences should all be in 1 file.
+
+7 formats accepted: 
+NBRF/PIR, EMBL/SwissProt, Pearson (Fasta), GDE, Clustal, GCG/MSF,                  RSF.
+
+
+Enter the name of the sequence file : Sequence format is PIR
+Sequences assumed to be PROTEIN
+
+
+Sequence 1: Chicken          706 aa
+Sequence 2: Chimpanzee       663 aa
+Sequence 3: Cow              649 aa
+Sequence 4: Dog              658 aa
+Sequence 5: Duck             722 aa
+Sequence 6: Human            663 aa
+Sequence 7: Mouse            632 aa
+Sequence 8: Orangutan        663 aa
+Sequence 9: Pig              663 aa
+Sequence 10: Rat              653 aa
+Sequence 11: Rhesus_macaque   662 aa
+Sequence 12: Sheep            655 aa
+
+
+
+ **************************************************************
+ ******** CLUSTAL 2.1 Multiple Sequence Alignments  ********
+ **************************************************************
+
+
+     1. Sequence Input From Disc
+     2. Multiple Alignments
+     3. Profile / Structure Alignments
+     4. Phylogenetic trees
+
+     S. Execute a system command
+     H. HELP
+     X. EXIT (leave program)
+
+
+Your choice: 
+
+
+****** MULTIPLE ALIGNMENT MENU ******
+
+
+    1.  Do complete multiple alignment now Slow/Accurate
+    2.  Produce guide tree file only
+    3.  Do alignment using old guide tree file
+
+    4.  Toggle Slow/Fast pairwise alignments = SLOW
+
+    5.  Pairwise alignment parameters
+    6.  Multiple alignment parameters
+
+    7.  Reset gaps before alignment? = OFF
+    8.  Toggle screen display          = ON
+    9.  Output format options
+    I. Iteration = NONE
+
+    S.  Execute a system command
+    H.  HELP
+    or press [RETURN] to go back to main menu
+
+
+Your choice: 
+
+
+ ********* Format of Alignment Output *********
+
+
+     F. Toggle FASTA format output       =  OFF
+
+     1. Toggle CLUSTAL format output     =  ON
+     2. Toggle NBRF/PIR format output    =  OFF
+     3. Toggle GCG/MSF format output     =  OFF
+     4. Toggle PHYLIP format output      =  OFF
+     5. Toggle NEXUS format output       =  OFF
+     6. Toggle GDE format output         =  OFF
+
+     7. Toggle GDE output case           =  LOWER
+     8. Toggle CLUSTALW sequence numbers =  OFF
+     9. Toggle output order              =  ALIGNED
+
+     0. Create alignment output file(s) now?
+
+     T. Toggle parameter output          = OFF
+     R. Toggle sequence range numbers =  OFF
+
+     H. HELP
+
+
+Enter number (or [RETURN] to exit): 
+
+
+ ********* Format of Alignment Output *********
+
+
+     F. Toggle FASTA format output       =  OFF
+
+     1. Toggle CLUSTAL format output     =  OFF
+     2. Toggle NBRF/PIR format output    =  OFF
+     3. Toggle GCG/MSF format output     =  OFF
+     4. Toggle PHYLIP format output      =  OFF
+     5. Toggle NEXUS format output       =  OFF
+     6. Toggle GDE format output         =  OFF
+
+     7. Toggle GDE output case           =  LOWER
+     8. Toggle CLUSTALW sequence numbers =  OFF
+     9. Toggle output order              =  ALIGNED
+
+     0. Create alignment output file(s) now?
+
+     T. Toggle parameter output          = OFF
+     R. Toggle sequence range numbers =  OFF
+
+     H. HELP
+
+
+Enter number (or [RETURN] to exit): 
+
+
+ ********* Format of Alignment Output *********
+
+
+     F. Toggle FASTA format output       =  OFF
+
+     1. Toggle CLUSTAL format output     =  OFF
+     2. Toggle NBRF/PIR format output    =  ON
+     3. Toggle GCG/MSF format output     =  OFF
+     4. Toggle PHYLIP format output      =  OFF
+     5. Toggle NEXUS format output       =  OFF
+     6. Toggle GDE format output         =  OFF
+
+     7. Toggle GDE output case           =  LOWER
+     8. Toggle CLUSTALW sequence numbers =  OFF
+     9. Toggle output order              =  ALIGNED
+
+     0. Create alignment output file(s) now?
+
+     T. Toggle parameter output          = OFF
+     R. Toggle sequence range numbers =  OFF
+
+     H. HELP
+
+
+Enter number (or [RETURN] to exit): 
+
+
+****** MULTIPLE ALIGNMENT MENU ******
+
+
+    1.  Do complete multiple alignment now Slow/Accurate
+    2.  Produce guide tree file only
+    3.  Do alignment using old guide tree file
+
+    4.  Toggle Slow/Fast pairwise alignments = SLOW
+
+    5.  Pairwise alignment parameters
+    6.  Multiple alignment parameters
+
+    7.  Reset gaps before alignment? = OFF
+    8.  Toggle screen display          = ON
+    9.  Output format options
+    I. Iteration = NONE
+
+    S.  Execute a system command
+    H.  HELP
+    or press [RETURN] to go back to main menu
+
+
+Your choice: 
+Enter a name for the NBRF/PIR output file [/Library/WebServer/Documents/serving/translatorx/tmp/translatorx_62059.pir]: Start of Pairwise alignments
+Aligning...
+
+Sequences (1:2) Aligned. Score:  46
+Sequences (1:3) Aligned. Score:  46
+Sequences (1:4) Aligned. Score:  46
+Sequences (1:5) Aligned. Score:  61
+Sequences (1:6) Aligned. Score:  46
+Sequences (1:7) Aligned. Score:  46
+Sequences (1:8) Aligned. Score:  46
+Sequences (1:9) Aligned. Score:  46
+Sequences (1:10) Aligned. Score:  45
+Sequences (1:11) Aligned. Score:  46
+Sequences (1:12) Aligned. Score:  46
+Sequences (2:3) Aligned. Score:  74
+Sequences (2:4) Aligned. Score:  77
+Sequences (2:5) Aligned. Score:  49
+Sequences (2:6) Aligned. Score:  98
+Sequences (2:7) Aligned. Score:  66
+Sequences (2:8) Aligned. Score:  97
+Sequences (2:9) Aligned. Score:  77
+Sequences (2:10) Aligned. Score:  66
+Sequences (2:11) Aligned. Score:  94
+Sequences (2:12) Aligned. Score:  75
+Sequences (3:4) Aligned. Score:  72
+Sequences (3:5) Aligned. Score:  49
+Sequences (3:6) Aligned. Score:  74
+Sequences (3:7) Aligned. Score:  63
+Sequences (3:8) Aligned. Score:  74
+Sequences (3:9) Aligned. Score:  80
+Sequences (3:10) Aligned. Score:  64
+Sequences (3:11) Aligned. Score:  75
+Sequences (3:12) Aligned. Score:  93
+Sequences (4:5) Aligned. Score:  50
+Sequences (4:6) Aligned. Score:  76
+Sequences (4:7) Aligned. Score:  65
+Sequences (4:8) Aligned. Score:  76
+Sequences (4:9) Aligned. Score:  76
+Sequences (4:10) Aligned. Score:  65
+Sequences (4:11) Aligned. Score:  77
+Sequences (4:12) Aligned. Score:  71
+Sequences (5:6) Aligned. Score:  49
+Sequences (5:7) Aligned. Score:  49
+Sequences (5:8) Aligned. Score:  49
+Sequences (5:9) Aligned. Score:  50
+Sequences (5:10) Aligned. Score:  48
+Sequences (5:11) Aligned. Score:  50
+Sequences (5:12) Aligned. Score:  49
+Sequences (6:7) Aligned. Score:  66
+Sequences (6:8) Aligned. Score:  97
+Sequences (6:9) Aligned. Score:  77
+Sequences (6:10) Aligned. Score:  66
+Sequences (6:11) Aligned. Score:  94
+Sequences (6:12) Aligned. Score:  75
+Sequences (7:8) Aligned. Score:  66
+Sequences (7:9) Aligned. Score:  66
+Sequences (7:10) Aligned. Score:  77
+Sequences (7:11) Aligned. Score:  66
+Sequences (7:12) Aligned. Score:  63
+Sequences (8:9) Aligned. Score:  77
+Sequences (8:10) Aligned. Score:  66
+Sequences (8:11) Aligned. Score:  94
+Sequences (8:12) Aligned. Score:  75
+Sequences (9:10) Aligned. Score:  66
+Sequences (9:11) Aligned. Score:  77
+Sequences (9:12) Aligned. Score:  81
+Sequences (10:11) Aligned. Score:  65
+Sequences (10:12) Aligned. Score:  63
+Sequences (11:12) Aligned. Score:  75
+Enter name for new GUIDE TREE           file   [/Library/WebServer/Documents/serving/translatorx/tmp/translatorx_62059.dnd]: 
+Guide tree file created:   [/Library/WebServer/Documents/serving/translatorx/tmp/translatorx_62059.dnd]
+
+There are 11 groups
+Start of Multiple Alignment
+
+Aligning...
+Group 1: Sequences:   2      Score:14219
+Group 2: Sequences:   3      Score:14156
+Group 3: Sequences:   4      Score:13916
+Group 4: Sequences:   5      Score:12712
+Group 5: Sequences:   2      Score:13555
+Group 6: Sequences:   3      Score:12855
+Group 7: Sequences:   8      Score:12331
+Group 8: Sequences:   2      Score:12179
+Group 9: Sequences:  10      Score:11325
+Group 10: Sequences:   2      Score:12356
+Group 11: Sequences:  12      Score:10062
+Alignment Score 175057
+
+
+
+Consensus length = 733 
+
+NBRF/PIR-Alignment file created  [/Library/WebServer/Documents/serving/translatorx/tmp/translatorx_62059.pir]
+
+
+>P1;Chimpanzee
+Chimpanzee
+------------------------------------------------------------
+---MVVSEVDIAKADPAAASHPLLLNGDANVAQKNPGSVAENNLCSQYEEKVRPCIDLID
+SLRALGVEQDLALPAIAVIGDQSSGKSSVLEALSGVALPRGSGIVTRCPLVLKLKKLVNE
+-DKWRGKVSYQDYENEISDASEVEKEINKAQNAIAGEGMGISHELITLEISSRDVPDLTL
+IDLPGITRVAVGNQPADIGYKIKTLIKKYIQRQETISLVVVPSNVDIATTEALSMAQEVD
+PEGDRTIGILTKPDLVDKGTEDKVVDVVRNLVFHLKKGYMIVKCRGQQEIQDQLSLSEAL
+QREKIFFQDHPYFRDLLEEGKATVPCLAEKLTSELITHICKSLPLLENQIKESHQRITEE
+LQKYGVDIPEDENEKMFFLIDKVNAFNQDISALMQGEETVGEEDIRLFTRLRHEFHKWST
+IIENNFQE--GHKILSRKIQKFENQYRGRELPGFVNYRTFETIVKQQIKALEEPAVDMLH
+TVTDMVRLAFTDVSIKNFEEFFNLHRTTKSKIEDIRAEQEREGEKLIRLHFQMEQIVYCQ
+DQVYRGALQKVREKELEEEKKK---KSWDFGAFQSSSATDPSMEEIFQHLMAYHQEASKR
+ISSHIPLIIQFFMLQTYGQQLQKAMLQLLQDKDTYSWLLKERSDTSDKRKFLKERLARLT
+QARRRLAQFPGX-
+*
+>P1;Human
+Human
+------------------------------------------------------------
+---MVVSEVDIAKADPAAASHPLLLNGDATVAQKNPGSVAENNLCSQYEEKVRPCIDLID
+SLRALGVEQDLALPAIAVIGDQSSGKSSVLEALSGVALPRGSGIVTRCPLVLKLKKLVNE
+-DKWRGKVSYQDYEIEISDASEVEKEINKAQNAIAGEGMGISHELITLEISSRDVPDLTL
+
+Press [RETURN] to continue or  X  to stop: 
+
+
+****** MULTIPLE ALIGNMENT MENU ******
+
+
+    1.  Do complete multiple alignment now Slow/Accurate
+    2.  Produce guide tree file only
+    3.  Do alignment using old guide tree file
+
+    4.  Toggle Slow/Fast pairwise alignments = SLOW
+
+    5.  Pairwise alignment parameters
+    6.  Multiple alignment parameters
+
+    7.  Reset gaps before alignment? = OFF
+    8.  Toggle screen display          = ON
+    9.  Output format options
+    I. Iteration = NONE
+
+    S.  Execute a system command
+    H.  HELP
+    or press [RETURN] to go back to main menu
+
+
+Your choice: 
+
+
+ **************************************************************
+ ******** CLUSTAL 2.1 Multiple Sequence Alignments  ********
+ **************************************************************
+
+
+     1. Sequence Input From Disc
+     2. Multiple Alignments
+     3. Profile / Structure Alignments
+     4. Phylogenetic trees
+
+     S. Execute a system command
+     H. HELP
+     X. EXIT (leave program)
+
+
+Your choice: 

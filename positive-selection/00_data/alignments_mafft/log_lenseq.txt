@@ -1,0 +1,12 @@
+Taxa: Chicken	Length of sequence: 2205
+Taxa: Chimpanzee	Length of sequence: 2205
+Taxa: Cow	Length of sequence: 2205
+Taxa: Dog	Length of sequence: 2205
+Taxa: Duck	Length of sequence: 2205
+Taxa: Human	Length of sequence: 2205
+Taxa: Mouse	Length of sequence: 2205
+Taxa: Orangutan	Length of sequence: 2205
+Taxa: Pig	Length of sequence: 2205
+Taxa: Rat	Length of sequence: 2205
+Taxa: Rhesus_macaque	Length of sequence: 2205
+Taxa: Sheep	Length of sequence: 2205

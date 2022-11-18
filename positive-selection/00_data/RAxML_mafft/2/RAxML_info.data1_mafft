@@ -47,7 +47,7 @@ Substitution Matrix: GTR
 
 RAxML was called as follows:
 
-raxmlHPC -f a -m GTRGAMMA -p 12345 -# 100 -x 12345 -# 500 -s data1_mafft.aln -o Duck,Chicken -n data1_mafft 
+raxmlHPC -f a -m GTRGAMMA -p 12345 -# 100 -x 12345 -# 500 -s data1_mafft.phy -o Duck,Chicken -n data1_mafft 
 
 
 

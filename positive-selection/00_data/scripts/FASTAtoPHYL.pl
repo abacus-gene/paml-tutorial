@@ -34,7 +34,7 @@ chomp($outname);
 $outname =~ s/\.fasta//;
 $outname =~ s/..*\///;
 print "Parsing alignment ".$outname." ... ... \n";
-my $outname2 = $outname.".aln";
+my $outname2 = $outname.".phy";
 ## Open the output file to save the alignment file 
 open(OUT, ">$outname2") or die "Cannot create the output file: $!";
 open(OUT2, ">log_lenseq.txt") or die "Cannot create log file: $!";

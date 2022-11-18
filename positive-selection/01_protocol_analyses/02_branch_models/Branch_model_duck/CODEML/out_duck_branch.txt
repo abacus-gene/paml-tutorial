@@ -79,7 +79,7 @@ Duck_Mx                          --- CTG --- --- --- --- --- GAT AAG GAA AAA AAA
     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
     1    1
 
-CODONML (in paml version 4.10.5, March 2022)  ../../../myxovirus.aln
+CODONML (in paml version 4.10.5, March 2022)  ../../../Mx_aln.phy
 Model: several dN/dS ratios for branches, 
 Codon frequency model: FMutSel
 ns =  12  ls = 663
@@ -332,4 +332,4 @@ w ratios as labels for TreeView:
 ((((((Chimpanzee_Mx #0.300416 , Human_Mx #0.300416 ) #0.300416 , Orangutan_Mx #0.300416 ) #0.300416 , Rhesus_macaque_Mx #0.300416 ) #0.300416 , (((Sheep_Mx #0.300416 , Cow_Mx #0.300416 ) #0.300416 , Pig_Mx #0.300416 ) #0.300416 , Dog_Mx #0.300416 ) #0.300416 ) #0.300416 , (Mouse_Mx #0.300416 , Rat_Mx #0.300416 ) #0.300416 ) #0.300416 , Duck_Mx #999 , Chicken_Mx #0.300416 );
 
 
-Time used:  1:14
+Time used:  1:20

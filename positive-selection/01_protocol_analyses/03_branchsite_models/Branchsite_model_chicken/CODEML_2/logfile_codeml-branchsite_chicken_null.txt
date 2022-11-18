@@ -171,4 +171,4 @@ Out..
 lnL  = -11946.431390
 2616 lfun, 13080 eigenQcodon, 219744 P(t)
 
-Time used:  3:45
+Time used:  4:49

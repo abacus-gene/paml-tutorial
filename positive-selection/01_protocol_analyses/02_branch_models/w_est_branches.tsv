@@ -1,2 +1,2 @@
-w_back_chicken	w_fore_chicken	w_back_duck	w_fore_duck
-0.29317	1.17109	0.30042	999.00000
+w_back_chicken	w_fore_chicken	w_back_duck	w_fore_duck	w_back_duckchicken	w_fore_duckchicken	w_back_outgroup	w_fore_outgroup
+0.29317	1.17109	0.30042	999.00000	0.28690	0.71097	0.36220	0.17724

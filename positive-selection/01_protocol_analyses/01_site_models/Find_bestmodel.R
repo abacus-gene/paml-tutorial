@@ -34,6 +34,8 @@ pchisq( diff_M0vsM1a, df = 1, lower.tail=F )
 # p-val = 1.217966e-123 < 0.05
 Chisq.crit.M0vsM1a <- qchisq( p = 0.95, df = 1 )
 # alpha critical value at 5% = 3.841459
+Chisq.crit.M0vsM1a_2 <- qchisq( p = 0.99, df = 1 )
+# alpha critical value at 1% = 6.634897
 
 # As M1a is a better fit to the data than M0, we can compare M1a 
 # (Nearly Neutral) against M2a (Positive Selection). 
@@ -45,7 +47,7 @@ pchisq( diff_M1avsM2a, df = 2, lower.tail=F )
 Chisq.crit.M1vsM2a <- qchisq( p = 0.95, df = 2 )
 # alpha critical value at 5% level = 5.991465
 Chisq.crit.M1vsM2a_2 <- qchisq( p = 0.99, df = 2 )
-# alpha critical value a5 1% level = 9.21034
+# alpha critical value at 1% level = 9.21034
 
 # In addition, we can run an additional comparison between 
 # M7 (beta) and M8 (beta&omega).

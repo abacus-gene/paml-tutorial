@@ -34,6 +34,8 @@ pchisq( diff_M0vsM1a, df = 1, lower.tail=F )
 # p-val = 1.217966e-123 < 0.05
 Chisq.crit.M0vsM1a <- qchisq( p = 0.95, df = 1 )
 # alpha critical value at 5% = 3.841459
+Chisq.crit.M0vsM1a_2 <- qchisq( p = 0.99, df = 1 )
+# alpha critical value at 1% = 6.634897
 
 # As M1a is a better fit to the data than M0, we can compare M1a 
 # (Nearly Neutral) against M2a (Positive Selection). 
@@ -45,7 +47,7 @@ pchisq( diff_M1avsM2a, df = 2, lower.tail=F )
 Chisq.crit.M1vsM2a <- qchisq( p = 0.95, df = 2 )
 # alpha critical value at 5% level = 5.991465
 Chisq.crit.M1vsM2a_2 <- qchisq( p = 0.99, df = 2 )
-# alpha critical value a5 1% level = 9.21034
+# alpha critical value at 1% level = 9.21034
 
 # In addition, we can run an additional comparison between 
 # M7 (beta) and M8 (beta&omega).
@@ -61,22 +63,28 @@ Chisq.crit.M7vsM8_2 <- qchisq( p = 0.99, df = 2 )
 
 # 3. Plot results 
 par( mfrow = c(1, 3) )
+
 # M0 vs M1a
 curve( dchisq( x, df = 1 ), from = 0, to =  595 )
-abline( v = c( Chisq.crit.M0vsM1a, diff_M0vsM1a ), col = c( "darkgray", "red" ) )
+abline( v = c( Chisq.crit.M0vsM1a, Chisq.crit.M0vsM1a_2, diff_M0vsM1a ), col = c( "darkgray", "brown", "red" ) )
 coords_dev    <- c( 407, 0.008 )
 coords_pval   <- c( 410.4, 0.0075 )
 coords_alphac <- c( 390, 0.0068 )
+coords_alphac2 <- c( 390, 0.0064 )
 text( x = coords_dev[1], y = coords_dev[2],
       labels = expression( atop( paste( '2', Delta, 'l = 559.26', sep = "" ) ) ),
       cex = 1.2, col = "red" )
 text( x = coords_alphac[1], y = coords_alphac[2],
       labels = expression( atop( paste( chi["1,0.05"]^"2", "= 3.84", sep = " " ) ) ),
       cex = 1.2, col = "gray" )
+text( x = coords_alphac2[1], y = coords_alphac2[2],
+      labels = expression( atop( paste( chi["1,0.01"]^"2", "= 6.63", sep = " " ) ) ),
+      cex = 1.2, col = "brown" )
 text( x = coords_pval[1], y = coords_pval[2],
       labels = expression( atop( ''*italic( pval )*' = 1.22e-123' ) ),
       cex = 1.2, col = "black" )
 title( "A) M0 vs M1a" )
+
 #M1a vs M2a 
 curve( dchisq( x, df = 2 ), from = 0, to =  10 )
 abline( v = c( Chisq.crit.M1vsM2a, Chisq.crit.M1vsM2a_2, diff_M1avsM2a ), col = c( "darkgray", "brown", "red" ) )
@@ -97,6 +105,7 @@ text( x = coords_pval[1], y = coords_pval[2],
       labels = expression( atop( ''*italic( pval )*' = 1' ) ),
       cex = 1.2, col = "black" )
 title( "B) M1a vs M2a" )
+
 # M7 vs M8
 curve( dchisq( x, df = 2 ), from = 0, to =  15 )
 abline( v = c( Chisq.crit.M7vsM8, Chisq.crit.M7vsM8_2, diff_M7vsM8 ), col = c( "darkgray", "brown", "red" ) )

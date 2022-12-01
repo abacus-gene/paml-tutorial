@@ -1,5 +1,5 @@
-      seqfile = ../../../myxovirus.aln            * Path to the alignment file
-     treefile = ../../../myxovirus_branch_chicken.tree           * Path to the tree file
+      seqfile = ../../../Mx_aln.phy            * Path to the alignment file
+     treefile = ../../../Mx_branch_chicken.tree           * Path to the tree file
       outfile = out_chicken_branch.txt            * Path to the output file
    
         noisy = 3              * How much rubbish on the screen

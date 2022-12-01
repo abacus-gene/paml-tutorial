@@ -1,0 +1,6 @@
+MLEs of dN/dS (w) for site classes (K=4)
+
+site class             0        1       2a       2b
+proportion       0.41258  0.28779  0.17651  0.12312
+background w     0.05798  1.00000  0.05798  1.00000
+foreground w     0.05798  1.00000  1.81175  1.81175

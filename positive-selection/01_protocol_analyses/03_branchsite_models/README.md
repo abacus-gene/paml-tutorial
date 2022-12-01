@@ -2,39 +2,41 @@
 
 Branch-site models assume that $\omega\$ can vary both across sites and across lineages ([Yang and Nielsen 2002](https://link.springer.com/article/10.1007/PL00006320)). In these analyses, the aim is to detect positive selection at specific sites along the so-called _foreground_ branches (i.e., user-specified branches with tags along which positive selection at specific sites will be tested).
 
-As we did with the tutorial to run the branch model, here we will run four analyses: one in which the foreground branch is the chicken lineage, another with the duck lineage, a third one in which both the chicken and the duck lineages are labelled simultaneously as foreground branches, and a last one in which the branch leading to the outgroup will be the foreground branch.
+As we did with the tutorial to run the branch model, here we will run four analyses: one in which the foreground branch is the chicken lineage, another with the duck lineage, a third one in which both the chicken and the duck lineages are labelled simultaneously as foreground branches, and a last one in which all the branches part of the bird clade are labelled as foreground branches (i.e., duck and chicken branches and the branch from the root to this clade).
 
 > **NOTE**: If you are a Mac user (i.e., UNIX-based system), you will see that the code snippets below include the command `sed`. By default, this command is different from Linux-based systems, and hence you will not be able to execute them properly. There are two approaches that you can follow, being one easier than the other:
 >
 >1. (EASY): Instead of running the commands below using the format `sed -i 's/PATTERN/REPLACEMENT/'`, you should include `''` between `-i` and `'s/PATTERN/REPLACEMENT/'`: `sed -i '' 's/PATTERN/REPLACEMENT/'`. Remember to modify the commands in this tutorial accordingly before you paste them on your terminal!
 >2. (MORE DIFFICULT): You should install `GNU sed` and establish it as the "standard" `sed` command instead of the one you will have by default. At the time of writing, [this post](https://medium.com/@bramblexu/install-gnu-sed-on-mac-os-and-set-it-as-default-7c17ef1b8f64) is available and has a detailed explanation that you could follow for this purpose. Nevertheless, there are many other tutorials out there that you could follow to achieve the same goal.
 
-If you have run the tutorial for branch models [here](../02_branch_models/README.md), you will already know that we will use an unrooted tree when testing the first three hypotheses and a rooted tree when testig the fourth one. In addition, you will already have the four tree files with the tags selecting the foreground branches generated. If not, please run the following code snippet before getting started with the tutorial:
+If you have run the tutorial for branch models [here](../02_branch_models/README.md), you will already know that we will use an unrooted tree when testing the first three hypotheses and a rooted tree when testing the fourth one. In addition, you will already have the four tree files with the tags selecting the foreground branches generated. If not, please run the following code snippet before getting started with the tutorial:
 
 ```sh
 # Run from `03_branchsite_models`
 cp ../Mx_unroot.tree ../Mx_branch_chicken.tree 
 cp ../Mx_unroot.tree ../Mx_branch_duck.tree 
 cp ../Mx_unroot.tree ../Mx_branch_duckchicken.tree 
-cp ../Mx_root.tree ../Mx_branch_outgroup.tree 
+cp ../Mx_root.tree ../Mx_branch_bird.tree 
 
 # Add tags 
 sed -i 's/Chicken\_Mx/Chicken\_Mx\ \#1/' ../Mx_branch_chicken.tree
 sed -i 's/Duck\_Mx/Duck\_Mx\ \#1/' ../Mx_branch_duck.tree
 sed -i 's/Chicken\_Mx/Chicken\_Mx\ \#1/' ../Mx_branch_duckchicken.tree
 sed -i 's/Duck\_Mx/Duck\_Mx\ \#1/' ../Mx_branch_duckchicken.tree
-sed -i 's/Chicken\_Mx)/Chicken\_Mx)\ \#1/' ../Mx_branch_outgroup.tree
+sed -i 's/Chicken\_Mx/Chicken\_Mx\ \#1/' ../Mx_branch_bird.tree
+sed -i 's/Duck\_Mx/Duck\_Mx\ \#1/' ../Mx_branch_bird.tree
+sed -i 's/Chicken\_Mx\ \#1)/Chicken\_Mx\ \#1)\ \#1/' ../Mx_branch_bird.tree
 ```
 
 ## 1. Inference with `CODEML`
 
 ### Part 1: alternative models
 
-Given that we want to test three hypotheses (i.e., when only one foreground branch is labelled with either the duck or the chicken lineage and then when both these lineages are simultaneously labelled as foreground branches), we create three different directories to run the corresponding analyses under the branch model:
+Given that we want to test four hypotheses, we create four different directories to run the branch-site model under the corresponding hypothesis:
 
 ```sh
 # Run from `03_branchsite_models`
-mkdir -p Branchsite_model_chicken/CODEML Branchsite_model_duck/CODEML Branchsite_model_duckchicken/CODEML Branchsite_model_outgroup/CODEML
+mkdir -p Branchsite_model_chicken/CODEML Branchsite_model_duck/CODEML Branchsite_model_duckchicken/CODEML Branchsite_model_bird/CODEML
 ```
 
 #### 1.1. Setting the control file
@@ -50,7 +52,7 @@ We use the [template control file](../../templates/template_CODEML.ctl) provided
 cp ../../templates/template_CODEML.ctl Branchsite_model_chicken/CODEML/codeml-branchsite.ctl 
 cp ../../templates/template_CODEML.ctl Branchsite_model_duck/CODEML/codeml-branchsite.ctl 
 cp ../../templates/template_CODEML.ctl Branchsite_model_duckchicken/CODEML/codeml-branchsite.ctl 
-cp ../../templates/template_CODEML.ctl Branchsite_model_outgroup/CODEML/codeml-branchsite.ctl 
+cp ../../templates/template_CODEML.ctl Branchsite_model_bird/CODEML/codeml-branchsite.ctl 
 
 # 2. Replace variable names with the 
 # values needed to run the analysis 
@@ -68,12 +70,12 @@ sed -i 's/ALN/\.\.\/\.\.\/\.\.\/Mx\_aln\.phy/' Branchsite_model_duckchicken/CODE
 sed -i 's/TREE/\.\.\/\.\.\/\.\.\/Mx\_branch\_duckchicken\.tree/' Branchsite_model_duckchicken/CODEML/codeml-branchsite.ctl 
 sed -i 's/OUT/out\_duckchicken\_branchsite\.txt/' Branchsite_model_duckchicken/CODEML/codeml-branchsite.ctl 
 
-sed -i 's/ALN/\.\.\/\.\.\/\.\.\/Mx\_aln\.phy/' Branchsite_model_outgroup/CODEML/codeml-branchsite.ctl 
-sed -i 's/TREE/\.\.\/\.\.\/\.\.\/Mx\_branch\_outgroup\.tree/' Branchsite_model_outgroup/CODEML/codeml-branchsite.ctl 
-sed -i 's/OUT/out\_outgroup\_branchsite\.txt/' Branchsite_model_outgroup/CODEML/codeml-branchsite.ctl 
+sed -i 's/ALN/\.\.\/\.\.\/\.\.\/Mx\_aln\.phy/' Branchsite_model_bird/CODEML/codeml-branchsite.ctl 
+sed -i 's/TREE/\.\.\/\.\.\/\.\.\/Mx\_branch\_bird\.tree/' Branchsite_model_bird/CODEML/codeml-branchsite.ctl 
+sed -i 's/OUT/out\_bird\_branchsite\.txt/' Branchsite_model_bird/CODEML/codeml-branchsite.ctl 
 
 # 2.2. Go over all control files
-for i in Branchsite_model_duck Branchsite_model_chicken Branchsite_model_duckchicken Branchsite_model_outgroup
+for i in Branchsite_model_duck Branchsite_model_chicken Branchsite_model_duckchicken Branchsite_model_bird
 do
 # 2.2.1 Set data to 1 (only one loci)
 sed -i 's/NDAT/1/' $i/CODEML/codeml-branchsite.ctl 
@@ -95,7 +97,7 @@ sed -i 's/INITOME/0\.5/' $i/CODEML/codeml-branchsite.ctl
 done
 ```
 
-**NOTE:** In this example, we have not copied the alignment or the tree files in the working directories (`Branchsite_model_chicken`, `Branchsite_model_duck`, or `Branchsite_model_duckchicken`). Instead, we have specified the path to these files as you can see in step 2.1 in the code snippet above. We have decided to do this so we do not keep several copies of the same input files to carry out the different tests for positive selection in different directories. Nevertheless, you may copy these two input files in the working directory of this analysis or other analysis you may run for other projects, in which case you do not need to type the relative path to these files in the control file as shown above (e.g., `../../../Mx_aln.phy`) but only the file names (e.g., `Mx_aln.phy`).
+**NOTE:** In this example, we have not copied the alignment or the tree files in the working directories (e.g., `Branchsite_model_chicken`). Instead, we have specified the path to these files as you can see in step 2.1 in the code snippet above. We have decided to do this so we do not keep several copies of the same input files to carry out the different tests for positive selection in different directories. Nevertheless, you may copy these two input files in the working directory of this analysis or other analysis you may run for other projects, in which case you do not need to type the relative path to these files in the control file as shown above (e.g., `../../../Mx_aln.phy`) but only the file names (e.g., `Mx_aln.phy`).
 
 #### 1.2. Running `CODEML`
 
@@ -104,7 +106,7 @@ Now that we have the control file, we only need to run `CODEML`. If you want to 
 ```sh
 # Run from `03_branchsite_models`
 home_dir=$( pwd )
-for i in Branchsite_model_duck Branchsite_model_chicken Branchsite_model_duckchicken Branchsite_model_outgroup
+for i in Branchsite_model_duck Branchsite_model_chicken Branchsite_model_duckchicken Branchsite_model_bird
 do
 # Move to dir 
 cd $i/CODEML/
@@ -135,7 +137,7 @@ We now run `CODEML` under a modified version of the `M2a` model where the value 
 
 ```sh
 # Run from `03_branchsite_models`
-mkdir -p Branchsite_model_chicken/CODEML_2 Branchsite_model_duck/CODEML_2 Branchsite_model_duckchicken/CODEML_2 Branchsite_model_outgroup/CODEML_2
+mkdir -p Branchsite_model_chicken/CODEML_2 Branchsite_model_duck/CODEML_2 Branchsite_model_duckchicken/CODEML_2 Branchsite_model_bird/CODEML_2
 ```
 
 #### 2.1. Setting the control file
@@ -151,7 +153,7 @@ We use the [template control file](../../templates/template_CODEML.ctl) provided
 cp ../../templates/template_CODEML.ctl Branchsite_model_chicken/CODEML_2/codeml-branchsite_null.ctl 
 cp ../../templates/template_CODEML.ctl Branchsite_model_duck/CODEML_2/codeml-branchsite_null.ctl 
 cp ../../templates/template_CODEML.ctl Branchsite_model_duckchicken/CODEML_2/codeml-branchsite_null.ctl 
-cp ../../templates/template_CODEML.ctl Branchsite_model_outgroup/CODEML_2/codeml-branchsite_null.ctl 
+cp ../../templates/template_CODEML.ctl Branchsite_model_bird/CODEML_2/codeml-branchsite_null.ctl 
 
 # 2. Replace variable names with the 
 # values needed to run the analysis 
@@ -169,12 +171,12 @@ sed -i 's/ALN/\.\.\/\.\.\/\.\.\/Mx\_aln\.phy/' Branchsite_model_duckchicken/CODE
 sed -i 's/TREE/\.\.\/\.\.\/\.\.\/Mx\_branch\_duckchicken\.tree/' Branchsite_model_duckchicken/CODEML_2/codeml-branchsite_null.ctl 
 sed -i 's/OUT/out\_duckchicken\_branchsite\.txt/' Branchsite_model_duckchicken/CODEML_2/codeml-branchsite_null.ctl
 
-sed -i 's/ALN/\.\.\/\.\.\/\.\.\/Mx\_aln\.phy/' Branchsite_model_outgroup/CODEML_2/codeml-branchsite_null.ctl 
-sed -i 's/TREE/\.\.\/\.\.\/\.\.\/Mx\_branch\_outgroup\.tree/' Branchsite_model_outgroup/CODEML_2/codeml-branchsite_null.ctl 
-sed -i 's/OUT/out\_outgroup\_branchsite\.txt/' Branchsite_model_outgroup/CODEML_2/codeml-branchsite_null.ctl
+sed -i 's/ALN/\.\.\/\.\.\/\.\.\/Mx\_aln\.phy/' Branchsite_model_bird/CODEML_2/codeml-branchsite_null.ctl 
+sed -i 's/TREE/\.\.\/\.\.\/\.\.\/Mx\_branch\_bird\.tree/' Branchsite_model_bird/CODEML_2/codeml-branchsite_null.ctl 
+sed -i 's/OUT/out\_bird\_branchsite\.txt/' Branchsite_model_bird/CODEML_2/codeml-branchsite_null.ctl
 
 # 2.2. Go over all control files
-for i in Branchsite_model_duck Branchsite_model_chicken Branchsite_model_duckchicken Branchsite_model_outgroup
+for i in Branchsite_model_duck Branchsite_model_chicken Branchsite_model_duckchicken Branchsite_model_bird
 do
 # 2.2.1 Set data to 1 (only one loci)
 sed -i 's/NDAT/1/' $i/CODEML_2/codeml-branchsite_null.ctl 
@@ -203,7 +205,7 @@ Now that we have the control file, we only need to run `CODEML`. If you want to 
 ```sh
 # Run from `03_branchsite_models`
 home_dir=$( pwd )
-for i in Branchsite_model_duck Branchsite_model_chicken Branchsite_model_duckchicken Branchsite_model_outgroup
+for i in Branchsite_model_duck Branchsite_model_chicken Branchsite_model_duckchicken Branchsite_model_bird
 do
 # Move to dir 
 cd $i/CODEML_2/
@@ -228,11 +230,11 @@ First, we extract those lines that have the `lnL` term and then remove unnecessa
 grep 'lnL' Branchsite_model_chicken/CODEML/out_chicken_branchsite.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' > lnL_branchsite_mods.txt
 grep 'lnL' Branchsite_model_duck/CODEML/out_duck_branchsite.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' >> lnL_branchsite_mods.txt
 grep 'lnL' Branchsite_model_duckchicken/CODEML/out_duckchicken_branchsite.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' >> lnL_branchsite_mods.txt
-grep 'lnL' Branchsite_model_outgroup/CODEML/out_outgroup_branchsite.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' >> lnL_branchsite_mods.txt
+grep 'lnL' Branchsite_model_bird/CODEML/out_bird_branchsite.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' >> lnL_branchsite_mods.txt
 grep 'lnL' Branchsite_model_chicken/CODEML_2/out_chicken_branchsite.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' >> lnL_branchsite_mods.txt
 grep 'lnL' Branchsite_model_duck/CODEML_2/out_duck_branchsite.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' >> lnL_branchsite_mods.txt
 grep 'lnL' Branchsite_model_duckchicken/CODEML_2/out_duckchicken_branchsite.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' >> lnL_branchsite_mods.txt
-grep 'lnL' Branchsite_model_outgroup/CODEML_2/out_outgroup_branchsite.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' >> lnL_branchsite_mods.txt
+grep 'lnL' Branchsite_model_bird/CODEML_2/out_bird_branchsite.txt | sed 's/..*\:\ *//' | sed 's/\ ..*//' >> lnL_branchsite_mods.txt
 ```
 
 The R script [`Find_bestmodel.R`](Find_bestmodel.R) is then used to compute LRT. The results are already written in the script as commented lines.
@@ -247,6 +249,6 @@ grep 'MLEs of' -A5 Branchsite_model_duck/CODEML/out_duck_branchsite.txt > Branch
 grep 'MLEs of' -A5 Branchsite_model_duck/CODEML_2/out_duck_branchsite.txt > Branchsite_model_duck/branchsite_duck_MLEs_2.txt
 grep 'MLEs of' -A5 Branchsite_model_duckchicken/CODEML/out_duckchicken_branchsite.txt > Branchsite_model_duckchicken/branchsite_duckchicken_MLEs.txt
 grep 'MLEs of' -A5 Branchsite_model_duckchicken/CODEML_2/out_duckchicken_branchsite.txt > Branchsite_model_duckchicken/branchsite_duckchicken_MLEs_2.txt
-grep 'MLEs of' -A5 Branchsite_model_outgroup/CODEML/out_outgroup_branchsite.txt > Branchsite_model_outgroup/branchsite_outgroup_MLEs.txt
-grep 'MLEs of' -A5 Branchsite_model_outgroup/CODEML_2/out_outgroup_branchsite.txt > Branchsite_model_outgroup/branchsite_outgroup_MLEs_2.txt
+grep 'MLEs of' -A5 Branchsite_model_bird/CODEML/out_bird_branchsite.txt > Branchsite_model_bird/branchsite_outgroup_MLEs.txt
+grep 'MLEs of' -A5 Branchsite_model_bird/CODEML_2/out_bird_branchsite.txt > Branchsite_model_bird/branchsite_outgroup_MLEs_2.txt
 ```

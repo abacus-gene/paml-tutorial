@@ -79,7 +79,7 @@ Duck_Mx                          --- CTG --- --- --- --- --- GAT AAG GAA AAA AAA
     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
     1    1
 
-CODONML (in paml version 4.10.5, March 2022)  ../../Mx_aln.phy
+CODONML (in paml version 4.10.6, November 2022)  ../../Mx_aln.phy
 Model: One dN/dS ratio, 
 Codon frequency model: FMutSel
 Site-class models: 
@@ -665,4 +665,4 @@ p :   0.000  0.958  0.041  0.001  0.000  0.000  0.000  0.000  0.000  0.000
 q :   0.000  0.000  0.930  0.027  0.008  0.006  0.022  0.006  0.000  0.001
 ws:   0.630  0.369  0.001  0.000  0.000  0.000  0.000  0.000  0.000  0.000
 
-Time used: 19:31
+Time used: 21:37

@@ -79,7 +79,7 @@ Duck_Mx                          --- CTG --- --- --- --- --- GAT AAG GAA AAA AAA
     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
     1    1
 
-CODONML (in paml version 4.10.5, March 2022)  ../../../Mx_aln.phy
+CODONML (in paml version 4.10.6, November 2022)  ../../../Mx_aln.phy
 Model: several dN/dS ratios for branches, 
 Codon frequency model: FMutSel
 Site-class models:  PositiveSelection
@@ -534,4 +534,4 @@ Posterior for p0-p1 (see the ternary graph) (YWN2015, fig. 1)
 
 sum of density on p0-p1 =   1.000000
 
-Time used:  4:15
+Time used:  6:21

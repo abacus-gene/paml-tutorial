@@ -79,7 +79,7 @@ Duck_Mx                          --- CTG --- --- --- --- --- GAT AAG GAA AAA AAA
     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
     1    1
 
-CODONML (in paml version 4.10.5, March 2022)  ../../Mx_aln.phy
+CODONML (in paml version 4.10.6, November 2022)  ../../Mx_aln.phy
 Model: One dN/dS ratio, 
 Codon frequency model: FMutSel
 ns =  12  ls = 663
@@ -324,4 +324,4 @@ tree length for dN:       1.1386
 tree length for dS:       3.3921
 
 
-Time used:  0:32
+Time used:  0:37

@@ -79,7 +79,7 @@ Duck_Mx                          --- CTG --- --- --- --- --- GAT AAG GAA AAA AAA
     1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
     1    1
 
-CODONML (in paml version 4.10.5, March 2022)  ../../../Mx_aln.phy
+CODONML (in paml version 4.10.6, November 2022)  ../../../Mx_aln.phy
 Model: several dN/dS ratios for branches, 
 Codon frequency model: FMutSel
 ns =  12  ls = 663
@@ -328,8 +328,8 @@ dS tree:
 dN tree:
 ((((((Chimpanzee_Mx: 0.002862, Human_Mx: 0.004102): 0.004080, Orangutan_Mx: 0.004875): 0.009007, Rhesus_macaque_Mx: 0.013799): 0.053885, (((Sheep_Mx: 0.012916, Cow_Mx: 0.010734): 0.054117, Pig_Mx: 0.048133): 0.037111, Dog_Mx: 0.081952): 0.013087): 0.051836, (Mouse_Mx: 0.051819, Rat_Mx: 0.047040): 0.092501): 0.317016, Duck_Mx: 0.079451, Chicken_Mx: 0.145922);
 
-w ratios as labels for TreeView:
+w ratios as node labels:
 ((((((Chimpanzee_Mx #0.286905 , Human_Mx #0.286905 ) #0.286905 , Orangutan_Mx #0.286905 ) #0.286905 , Rhesus_macaque_Mx #0.286905 ) #0.286905 , (((Sheep_Mx #0.286905 , Cow_Mx #0.286905 ) #0.286905 , Pig_Mx #0.286905 ) #0.286905 , Dog_Mx #0.286905 ) #0.286905 ) #0.286905 , (Mouse_Mx #0.286905 , Rat_Mx #0.286905 ) #0.286905 ) #0.286905 , Duck_Mx #0.710975 , Chicken_Mx #0.710975 );
 
 
-Time used:  1:08
+Time used:  1:22

@@ -1,5 +1,5 @@
 
-CODONML in paml version 4.10.5, March 2022
+CODONML in paml version 4.10.6, November 2022
 
 ----------------------------------------------
 Phe F TTT | Ser S TCT | Tyr Y TAT | Cys C TGT
@@ -142,4 +142,4 @@ Out..
 lnL  = -12249.403354
 1670 lfun, 1670 eigenQcodon, 35070 P(t)
 
-Time used:  0:32
+Time used:  0:37

@@ -1,5 +1,5 @@
 
-CODONML in paml version 4.10.5, March 2022
+CODONML in paml version 4.10.6, November 2022
 
 ----------------------------------------------
 Phe F TTT | Ser S TCT | Tyr Y TAT | Cys C TGT
@@ -161,15 +161,15 @@ Out..
 lnL  = -2048.740593
 308 lfun, 308 eigenQcodon, 924 P(t)
 
-Time used:  0:01
+Time used:  0:02
 
 Dataset  3 ns = 2  	ls = 900
 Reading sequences, sequential format..
 Reading seq # 1: S2       Reading seq # 2: S4       
 Sequences read..
-Counting site patterns..  0:01
-Compressing,    175 patterns at    300 /    300 sites (100.0%),  0:01
-Collecting fpatt[] & pose[],    175 patterns at    300 /    300 sites (100.0%),  0:01
+Counting site patterns..  0:02
+Compressing,    175 patterns at    300 /    300 sites (100.0%),  0:02
+Collecting fpatt[] & pose[],    175 patterns at    300 /    300 sites (100.0%),  0:02
 Counting codons..
 
 
@@ -220,4 +220,4 @@ Out..
 lnL  = -1730.054488
 195 lfun, 195 eigenQcodon, 390 P(t)
 
-Time used:  0:01
+Time used:  0:02

@@ -12,7 +12,7 @@ As every functional protein has some structural constraints, the $\omega$ ratio 
 
 ## What can I find in this repository?
 
-In this repository, you will find the data, the code, and step-by-step guidelines for reproducing the results in the `CODEML` protocol ([Álvarez-Carretero et al. (submitted)](README.md)). We performed all positive selection analyses with `CODEML`, in the [PAML v4.10.6 package](http://abacus.gene.ucl.ac.uk/software/paml.html) ([Yang 2007](https://academic.oup.com/mbe/article/24/8/1586/1103731)).
+In this repository, you will find the data, the code, and step-by-step guidelines for reproducing the results in the `CODEML` protocol ([Álvarez-Carretero et al. (submitted)](README.md)). We performed all positive selection analyses with `CODEML`, in the [PAML v4.10.6 package](https://github.com/abacus-gene/paml) ([Yang 2007](https://academic.oup.com/mbe/article/24/8/1586/1103731)).
 
 We use the alignment and tree files for the myxovirus gene sequences from ten mammal species and two birds (outgroup) analysed by Huo et al. ([2007](https://pubmed.ncbi.nlm.nih.gov/17467195/)).
 [Here](00_data), we explain how we downloaded and parsed these sequences before we generated the alignment and the gene tree. Then, we carried out different tests for positive selection under the following models:

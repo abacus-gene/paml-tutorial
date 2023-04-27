@@ -20,7 +20,7 @@ mkdir Model_M0
 
 ### 1. Setting the control file
 
-We use the [template control file](../../templates/template_CODEML.ctl) provided in this GitHub repository ([here](../../templates/). Note that, if we were using a rooted tree, the two branch lengths leading to the root are unidentifiable and only their sum can be properly estimated. Consequently, to avoid this identifiability issue, we will be using an unrooted tree (which also results in reducing the number of parameters to be estimated to one). Once we have located our input files (alignment and tree files) and know which model we want to run, we use the command `sed` to find the variable names defined in the template file so we can replace them with the correct value for each option:
+We use the [template control file](../../templates/template_CODEML.ctl) provided in this GitHub repository ([in directory `templates`](../../templates/)). Note that, if we were using a rooted tree, the two branch lengths leading to the root are unidentifiable and only their sum can be properly estimated. Consequently, to avoid this identifiability issue, we will be using an unrooted tree (which also results in reducing the number of parameters to be estimated to one). Once we have located our input files (alignment and tree files) and know which model we want to run, we use the command `sed` to find the variable names defined in the template file so we can replace them with the correct value for each option:
 
 ```sh
 # Run from `Model_M0` directory 

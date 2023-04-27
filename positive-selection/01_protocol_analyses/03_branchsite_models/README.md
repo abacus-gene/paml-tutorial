@@ -2,14 +2,14 @@
 
 Branch-site models assume that $\omega\$ can vary both across sites and across lineages ([Yang and Nielsen 2002](https://link.springer.com/article/10.1007/PL00006320)). In these analyses, the aim is to detect positive selection at specific sites along the so-called _foreground_ branches (i.e., user-specified branches with tags along which positive selection at specific sites will be tested).
 
-As we did with the tutorial to run the branch model, here we will run four analyses: one in which the foreground branch is the chicken lineage, another with the duck lineage, a third one in which both the chicken and the duck lineages are labelled simultaneously as foreground branches, and a last one in which all the branches part of the bird clade are labelled as foreground branches (i.e., duck and chicken branches and the branch from the root to this clade).
+As we did with the tutorial to run the branch model, we will run four analyses now under the branch-site model: one in which the foreground branch is the chicken lineage, another with the duck lineage, a third one in which both the chicken and the duck lineages are labelled simultaneously as foreground branches, and a last one in which all the branches part of the bird clade are labelled as foreground branches (i.e., duck and chicken branches and the branch from the root to this clade).
 
 > **NOTE**: If you are a Mac user (i.e., UNIX-based system), you will see that the code snippets below include the command `sed`. By default, this command is different from Linux-based systems, and hence you will not be able to execute them properly. There are two approaches that you can follow, being one easier than the other:
 >
 >1. (EASY): Instead of running the commands below using the format `sed -i 's/PATTERN/REPLACEMENT/'`, you should include `''` between `-i` and `'s/PATTERN/REPLACEMENT/'`: `sed -i '' 's/PATTERN/REPLACEMENT/'`. Remember to modify the commands in this tutorial accordingly before you paste them on your terminal!
 >2. (MORE DIFFICULT): You should install `GNU sed` and establish it as the "standard" `sed` command instead of the one you will have by default. At the time of writing, [this post](https://medium.com/@bramblexu/install-gnu-sed-on-mac-os-and-set-it-as-default-7c17ef1b8f64) is available and has a detailed explanation that you could follow for this purpose. Nevertheless, there are many other tutorials out there that you could follow to achieve the same goal.
 
-If you have run the tutorial for branch models [here](../02_branch_models/README.md), you will already know that we will use an unrooted tree when testing the first three hypotheses and a rooted tree when testing the fourth one. In addition, you will already have the four tree files with the tags selecting the foreground branches generated. If not, please run the following code snippet before getting started with the tutorial:
+If you have run the tutorial for branch models [in directory `02_branch_models`](../02_branch_models/README.md), you will already know that we will use an unrooted tree when testing the first three hypotheses and a rooted tree when testing the fourth one. In addition, you will already have the four tree files with the tags selecting the foreground branches generated. If not, please run the following code snippet before getting started with the tutorial:
 
 ```sh
 # Run from `03_branchsite_models`
@@ -41,7 +41,7 @@ mkdir -p Branchsite_model_chicken/CODEML Branchsite_model_duck/CODEML Branchsite
 
 #### 1.1. Setting the control file
 
-We use the [template control file](../../templates/template_CODEML.ctl) provided in this GitHub repository ([here](../../templates/). Then, we use the command `sed` to find the variable names defined in the template file so we can replace them with the correct value for each option:
+We use the [template control file](../../templates/template_CODEML.ctl) provided in this GitHub repository ([in directory `templates`](../../templates/)). Then, we use the command `sed` to find the variable names defined in the template file so we can replace them with the correct value for each option:
 
 ```sh
 # Relative paths from `03_branchsite_models` directory 
@@ -142,7 +142,7 @@ mkdir -p Branchsite_model_chicken/CODEML_2 Branchsite_model_duck/CODEML_2 Branch
 
 #### 2.1. Setting the control file
 
-We use the [template control file](../../templates/template_CODEML.ctl) provided in this GitHub repository ([here](../../templates/). Then, we use the command `sed` to find the variable names defined in the template file so we can replace them with the correct value for each option:
+We use the [template control file](../../templates/template_CODEML.ctl) provided in this GitHub repository ([in directory `templates`](../../templates/)). Then, we use the command `sed` to find the variable names defined in the template file so we can replace them with the correct value for each option:
 
 ```sh
 # Relative paths from `03_branchsite_models` directory 

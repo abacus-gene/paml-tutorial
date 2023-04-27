@@ -21,7 +21,7 @@ cd Site_models
 
 ### 1. Setting the control file
 
-We use the [template control file](../../templates/template_CODEML.ctl) provided in this GitHub repository ([here](../../templates/). Note that, if we were using a rooted tree, the two branch lengths leading to the root are unidentifiable and only their sum can be properly estimated. Consequently, to avoid this identifiability issue, we will be using an unrooted tree (which also results in reducing the number of parameters to be estimated to one). Once we have located our input files (alignment and tree files) and know which model we want to run, we use the command `sed` to find the variable names defined in the template file so we can replace them with the correct value for each option:
+We use the [template control file](../../templates/template_CODEML.ctl) provided in this GitHub repository ([in directory `templates`](../../templates/)). Note that, if we were using a rooted tree, the two branch lengths leading to the root are unidentifiable and only their sum can be properly estimated. Consequently, to avoid this identifiability issue, we will be using an unrooted tree (which also results in reducing the number of parameters to be estimated to one). Once we have located our input files (alignment and tree files) and know which model we want to run, we use the command `sed` to find the variable names defined in the template file so we can replace them with the correct value for each option:
 
 ```sh
 # Run from `01_site_models/Site_models`
@@ -100,7 +100,7 @@ sed -i 's/Model\ 2/Model\_2a/' lnL_sites.txt
 sed -i 's/Model\ /Model\_/g' lnL_sites.txt
 ```
 
-The `R` script to compute LRT statistics for each model comparison can be found [here](Find_bestmodel.R). The results are already included as part of commented lines.
+You can find the commands to compute LRT statistics for each model comparison [in the `R` script `Find_bestmodel.R`](Find_bestmodel.R). The results are already included as part of commented lines.
 
 If you run this script, you will see that the preferred model is `M8`. If you want to extract the estimated parameters in this model, you can use the following command:
 

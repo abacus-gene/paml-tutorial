@@ -39,7 +39,7 @@ mkdir -p Branch_model_chicken/CODEML Branch_model_duck/CODEML Branch_model_duckc
 
 ### 1. Setting the control file
 
-We use the [template control file](../../templates/template_CODEML.ctl) provided in this GitHub repository ([here](../../templates/). Then, we use the command `sed` to find the variable names defined in the template file so we can replace them with the correct value for each option:
+We use the [template control file](../../templates/template_CODEML.ctl) provided in this GitHub repository ([in directory `templates`](../../templates/)). Then, we use the command `sed` to find the variable names defined in the template file so we can replace them with the correct value for each option:
 
 ```sh
 # Run from `02_branch_models`

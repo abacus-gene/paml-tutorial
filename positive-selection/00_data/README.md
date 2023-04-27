@@ -57,7 +57,7 @@ Then, we generated a FASTA file in which each sequence was written in one line, 
 # run the following two commands
 chmod 775 *
 chmod 775 pal2nal_v14/*
-# Now, move the `raw_data` directory
+# Now, move to the `raw_data` directory
 cd ../raw_data
 # From this directory, run the following commands
 for i in data1/*raw.fasta

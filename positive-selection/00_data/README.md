@@ -6,18 +6,18 @@ We are using the "dataset 1" described in [Hou et al. 2007](https://pubmed.ncbi.
 
 Below, you can find the link to the site where each myxovirus sequence was downloaded for the taxa present in the phylogeny studied by [Hou et al. 2007](https://pubmed.ncbi.nlm.nih.gov/17467195/). Some sequences have additional notes used to highlight issues we encountered when trying to download them:
 
-* Human, *Homo sapiens*, Mx1 (GenBank accession no: NM_002462). Downloaded from [here](https://www.ncbi.nlm.nih.gov/nuccore/NM_002462.5?from=334&to=2322).
-* Rhesus macaque, *Macaca mulata*, Mx1 (Ensembl:ENSMMUT00000021494). Downloaded from [here](http://www.ensembl.org/Macaca_mulatta/Gene/Summary?db=core;g=ENSMMUG00000015329;r=3:5184764-5224295).
-* Chimpanzee, *Pan troglodites*, Mx1 (Ensembl:ENSPTRG00000013927). Downloaded from [here](http://www.ensembl.org/Pan_troglodytes/Gene/Summary?db=core;g=ENSPTRG00000013927;r=21:27867000-27965931).
-* Orangutan, *Pongo abeli*, cDNA from clone DKFZp469O2020, "note: myxovirus resistance protein 1 (Homo sapiens)" (Gen-Bank accession no: CR860897). Downloaded from [here](https://www.ncbi.nlm.nih.gov/nuccore/CR860897.1?from=351&to=2339).
-* Sheep, *Ovis aries*, Mx homologue (GenBank accession no:X66093). Downloaded from [here](https://www.ncbi.nlm.nih.gov/nuccore/X66093.1?from=72&to=2036).
-* Cow, *Bos taurus*, Mx1 (GenBank accession no: NM_173940). Downloaded from [here](https://www.ncbi.nlm.nih.gov/nuccore/NM_173940.2?from=99&to=2045).
-* Dog, *Canis familiaris*, Mx1 (Gen-Bank accession no: AF239823). Downloaded from [here](https://www.ncbi.nlm.nih.gov/nuccore/AF239823.1?from=116&to=2089).
-* Rat, *Rattus norvegicus*, Mx1 (GenBank accession no:BC099784). Downloaded from [here](https://www.ncbi.nlm.nih.gov/nuccore/BC099784.1?from=309&to=2267).
-* Pig, *Sus scrofa*, Mx1 (GenBank accession no: AB164037). Downloaded from [here](https://www.ncbi.nlm.nih.gov/nuccore/AB164037.1?from=101&to=2089).
-* Mouse, *Mus musculus* (GenBank accession no: NM_010846). Downloaded from [here](https://www.ncbi.nlm.nih.gov/nuccore/NM_010846.1?from=214&to=2109).
-* Chicken, *Gallus gallus*, Mx1 (GenBank accession no: ~NM_204069~ **NOTE: They had a typo. This sequence is a frog, *Xenopus tropicalis*. The accession no for the chicken is NM_204609.1**). Downloaded from [here](https://www.ncbi.nlm.nih.gov/nuccore/NM_204609.1?from=141&to=2258).
-* Duck, *Anas platyrhynchos*, clone 13, Mx protein (GenBank accession no:Z21549). Downloaded from [here](https://www.ncbi.nlm.nih.gov/nuccore/Z21549.1?from=61&to=2226).
+* Human, *Homo sapiens*, Mx1 (GenBank accession no: NM_002462). Downloaded from [the NCBI website using this link](https://www.ncbi.nlm.nih.gov/nuccore/NM_002462.5?from=334&to=2322).
+* Rhesus macaque, *Macaca mulata*, Mx1 (Ensembl:ENSMMUT00000021494). Downloaded from [the NCBI website using this link](http://www.ensembl.org/Macaca_mulatta/Gene/Summary?db=core;g=ENSMMUG00000015329;r=3:5184764-5224295).
+* Chimpanzee, *Pan troglodites*, Mx1 (Ensembl:ENSPTRG00000013927). Downloaded from [the NCBI website using this link](http://www.ensembl.org/Pan_troglodytes/Gene/Summary?db=core;g=ENSPTRG00000013927;r=21:27867000-27965931).
+* Orangutan, *Pongo abeli*, cDNA from clone DKFZp469O2020, "note: myxovirus resistance protein 1 (Homo sapiens)" (Gen-Bank accession no: CR860897). Downloaded from [the NCBI website using this link](https://www.ncbi.nlm.nih.gov/nuccore/CR860897.1?from=351&to=2339).
+* Sheep, *Ovis aries*, Mx homologue (GenBank accession no:X66093). Downloaded from [the NCBI website using this link](https://www.ncbi.nlm.nih.gov/nuccore/X66093.1?from=72&to=2036).
+* Cow, *Bos taurus*, Mx1 (GenBank accession no: NM_173940). Downloaded from [the NCBI website using this link](https://www.ncbi.nlm.nih.gov/nuccore/NM_173940.2?from=99&to=2045).
+* Dog, *Canis familiaris*, Mx1 (Gen-Bank accession no: AF239823). Downloaded from [the NCBI website using this link](https://www.ncbi.nlm.nih.gov/nuccore/AF239823.1?from=116&to=2089).
+* Rat, *Rattus norvegicus*, Mx1 (GenBank accession no:BC099784). Downloaded from [the NCBI website using this link](https://www.ncbi.nlm.nih.gov/nuccore/BC099784.1?from=309&to=2267).
+* Pig, *Sus scrofa*, Mx1 (GenBank accession no: AB164037). Downloaded from [the NCBI website using this link](https://www.ncbi.nlm.nih.gov/nuccore/AB164037.1?from=101&to=2089).
+* Mouse, *Mus musculus* (GenBank accession no: NM_010846). Downloaded from [the NCBI website using this link](https://www.ncbi.nlm.nih.gov/nuccore/NM_010846.1?from=214&to=2109).
+* Chicken, *Gallus gallus*, Mx1 (GenBank accession no: ~NM_204069~ **NOTE: They had a typo. This sequence is a frog, *Xenopus tropicalis*. The accession no for the chicken is NM_204609.1**). Downloaded from [the NCBI website using this link](https://www.ncbi.nlm.nih.gov/nuccore/NM_204609.1?from=141&to=2258).
+* Duck, *Anas platyrhynchos*, clone 13, Mx protein (GenBank accession no:Z21549). Downloaded from [the NCBI website using this link](https://www.ncbi.nlm.nih.gov/nuccore/Z21549.1?from=61&to=2226).
 
 In [Hou et al. 2007](https://pubmed.ncbi.nlm.nih.gov/17467195/), the sequences of rhesus macaque and chimpanzee were extracted from the ENSEMBL predicted transcripts (version 39, 2006), whereas all other mRNA sequences or cDNA sequences were retrieved from GenBank.
 
@@ -33,7 +33,7 @@ Given that the alignments or the code to generate the alignments were not provid
 
 ### Processing raw input data
 
-First, we had to concatenate all the sequences we had previously downloaded (see links provided above) in a unique FASTA file, which we had saved [here](raw_data/data1). In order to do this, we ran the following code from directory [`raw_data`](raw_data):
+First, we had to concatenate all the sequences we had previously downloaded (see links provided above) in a unique FASTA file, which we had saved [in the `raw_data/data1` directory](raw_data/data1). In order to do this, we ran the following code from directory [`raw_data`](raw_data):
 
 ```sh
 # Run from `raw_data` directory 
@@ -49,7 +49,17 @@ done
 Then, we generated a FASTA file in which each sequence was written in one line, one after the other:
 
 ```sh
-# Run from `raw_data` directory
+# First, give permissions to the `scripts` 
+# directory so that you can execute the
+# various scripts saved in this directory
+# throughout this tutorial
+# Once you are in the `scripts` directory,
+# run the following two commands
+chmod 775 *
+chmod 775 pal2nal_v14/*
+# Now, move the `raw_data` directory
+cd ../raw_data
+# From this directory, run the following commands
 for i in data1/*raw.fasta
 do
 name=$( echo $i | sed 's/\.fasta//' )
@@ -71,7 +81,7 @@ Once we had our sequences in a unique FASTA file, we used the pipeline [`Transla
 
 Files were saved as `data1_nuc_aln.fasta` and `data1_prot_aln.fasta`. We also saved the log generated by this tool ([`translatorx_3423.clustalw.log.txt`](alignments/data1/translatorx_3423.clustalw.log.txt)) when `ClustalW` was used to generate the alignment as well as the log file with the compositional bias ([`GCcontent_log_translatorx.txt`](alignments/data1/GCcontent_log_translatorx.txt)). All these output files are saved in [`alignments/data1`](alignments/data1).
 
-Then, we also ran `PAL2NAL` to convert the alignments in codon data (just to double check the nucleotide alignment is the same). `PAL2NAL` is a PERL script (see [here](scripts/pal2nal_v14)) that uses a protein alignment and a file with the DNA sequence to match, and then outputs a codon-based DNA alignment. The commands we used are the following:
+Then, we also ran `PAL2NAL` to convert the alignments in codon data (just to double check the nucleotide alignment is the same). `PAL2NAL` is a PERL script (see [directory `scripts/pal2nal_v14`](scripts/pal2nal_v14)) that uses a protein alignment and a file with the DNA sequence to match, and then outputs a codon-based DNA alignment. The commands we used are the following:
 
 ```sh
 # Run from the directory where this
@@ -83,7 +93,7 @@ mkdir pal2nal_checks
 ../../scripts/one_line_fasta.pl pal2nal_checks/data1pal2nal_out.fasta
 ```
 
-The last step is to convert the alignment from FASTA to PHYLIP format. For that purpose, we use the PERL script `FASTAtoPHYL.pl` (saved [here](scripts)) as it follows:
+The last step is to convert the alignment from FASTA to PHYLIP format. For that purpose, we use the PERL script `FASTAtoPHYL.pl` (saved [in the `scripts` directory](scripts)) as it follows:
 
 ```sh
 # Run from this directory where
@@ -109,7 +119,7 @@ cp mafft_translatorx.aa_ali.fasta ../alignments_mafft/data1_prot_mafft_aln.fasta
 
 >> **NOTE**: We saved the screen output in file [`log.out_translatorx.txt`](translatorX_perl/log.out_translatorx.txt).
 
-Then, we ran `PAL2NAL` to convert the alignments in codon data (just to double check the nucleotide alignment is the same). This is a PERL script (see [here](scripts/pal2nal_v14)) that uses a protein alignment and a file with the DNA sequence to match, and then outputs a codon-based DNA alignment. The commands we used are the following:
+Then, we ran `PAL2NAL` to convert the alignments in codon data (just to double check the nucleotide alignment is the same). This is a PERL script (see [directory `scripts/pal2nal_v14`](scripts/pal2nal_v14)) that uses a protein alignment and a file with the DNA sequence to match, and then outputs a codon-based DNA alignment. The commands we used are the following:
 
 ```sh
 # Run from this directory where this
@@ -121,7 +131,7 @@ mkdir pal2nal_checks
 ../scripts/one_line_fasta.pl pal2nal_checks/data1_pal2nal_mafft_out.fasta
 ```
 
-The last step is to convert the FASTA file in PHYLIP format. For that purpose, we use the PERL script `FASTAtoPHYL.pl` (saved [here](scripts)) as it follows:
+The last step is to convert the FASTA file in PHYLIP format. For that purpose, we use the PERL script `FASTAtoPHYL.pl` (saved [in the `scripts` directory](scripts)) as it follows:
 
 ```sh
 # Run from this directory where
@@ -143,9 +153,9 @@ We detected that both alignments generated with `ClustalW` and `MAFFT` resulted 
 
 The phylogenetic tree was constructed by the neighbor-joining (NJ) method [Saitou and Nei, 1987](https://pubmed.ncbi.nlm.nih.gov/3447015/) based on predicted protein sequences. The p-distances (proportion of differences) with a high resolution of branching pattern were calculated [Nei and Kumar, 2000](https://www.scirp.org/(S(lz5mqp453ed%20snp55rrgjct55))/reference/referencespapers.aspx?referenceid=1774532). One thousand bootstrap replicates were carried out to test the support for each node in the tree.
 
-### Procedure followed here
+### Procedure we followed
 
-Here, we followed a maximum-likelihood approach to estimate the best-scoring maximum likelihood tree with `RAxML v8.2.10` ([Stamatakis 2014](https://academic.oup.com/bioinformatics/article/30/9/1312/238053?login=true)). We used the following code:
+During this study, we followed a maximum-likelihood approach to estimate the best-scoring maximum likelihood tree with `RAxML v8.2.10` ([Stamatakis 2014](https://academic.oup.com/bioinformatics/article/30/9/1312/238053?login=true)). We used the following code:
 
 ```sh
 # NOTE: This command was included in a script 
@@ -171,7 +181,7 @@ For each analysis with each gene alignment, the best-scoring ML trees are `RAxML
 The rooted trees were then saved as `data1.tree` (Newick format) in each corresponding directory. All of the inferred gene trees agree with the tree topology.
 
 >> **NOTE**: The best-scoring ML tree for dataset 1 in [Hou et al. 2007](https://pubmed.ncbi.nlm.nih.gov/17467195/) (Fig. S1) has *C. familiaris* as an outgroup to the clade with pig, cow, and sheep. We did not obtain this tree topology. We have kept the tree topology estimated by `RAxML` as the same tree topology was inferred regardless of the alignment used.
->> **NOTE**: The successor of `RAxML v8.2.10` is `RAxML-NG` ([Kozlov et al. 2019](https://academic.oup.com/bioinformatics/article/35/21/4453/5487384?login=true)) (see the GitHub with all the detailed tutorials to run `RAxML-NG` [here](https://github.com/amkozlov/raxml-ng)). We had already run our code with `RAxML v8.2.10` and, given that the estimated tree topology matched the one obtained by the original study, we did not redo the tree inference with `RAxML-NG`. Nevertheless, had we needed to use the branch lengths (`CODEML` only requires the tree topology, not the branch lenghts) or had we encountered a conflictive or unresolved phylogeny, we would have re-run our ML inference with `RAxML-NG` as recommended by the software developers.
+>> **NOTE**: The successor of `RAxML v8.2.10` is `RAxML-NG` ([Kozlov et al. 2019](https://academic.oup.com/bioinformatics/article/35/21/4453/5487384?login=true)) ([see the GitHub with all the detailed tutorials to run `RAxML-NG`](https://github.com/amkozlov/raxml-ng)). We had already run our code with `RAxML v8.2.10` and, given that the estimated tree topology matched the one obtained by the original study, we did not redo the tree inference with `RAxML-NG`. Nevertheless, had we needed to use the branch lengths (`CODEML` only requires the tree topology, not the branch lenghts) or had we encountered a conflictive or unresolved phylogeny, we would have re-run our ML inference with `RAxML-NG` as recommended by the software developers.
 
 Then, we just used the next command to get rid of the branch lengths and obtain the tree topologies to be used in `CODEML`:
 
@@ -251,4 +261,4 @@ printf "\n" >> Mx_unroot.tree
 #   ((((((Chimpanzee_Mx,Human_Mx),Orangutan_Mx),Rhesus_macaque_Mx),(((Sheep_Mx,Cow_Mx),Pig_Mx),Dog_Mx)),(Mouse_Mx,Rat_Mx)),Duck_Mx,Chicken_Mx);
 ```
 
-Once the input files for `CODEML` have been generated (i.e., `Mx_aln.phy`, `Mx_root.tree`, and `Mx_unroot.tree`), we can copy them into the [`00_protocol_CODEML`](../01_protocol_analyses) directory in this GitHub repository. Please note that the `Mx_aln.phy` alignment file you will find here still has STOP codons, and hence it has 1992 nucleotides. Nevertheless, the `Mx_aln.phy` you will find in the [`00_protocol_CODEML`](../01_protocol_analyses) directory does not have STOP codons (i.e., the alignment length is reduced 3 nucleotides, and so the PHYLIP header is changed). We manually removed the last three nucleotides and changed the header so the alignment is now ready to be used with `CODEML`.
+Once the input files for `CODEML` have been generated (i.e., `Mx_aln.phy`, `Mx_root.tree`, and `Mx_unroot.tree`), we can copy them into the [`00_protocol_CODEML`](../01_protocol_analyses) directory in this GitHub repository. Please note that the `Mx_aln.phy` alignment file you will find in this directory still has STOP codons, and hence it has 1992 nucleotides. Nevertheless, the `Mx_aln.phy` you will find in the [`00_protocol_CODEML`](../01_protocol_analyses) directory does not have STOP codons (i.e., the alignment length is reduced 3 nucleotides, and so the PHYLIP header is changed). We manually removed the last three nucleotides and changed the header so the alignment is now ready to be used with `CODEML`.

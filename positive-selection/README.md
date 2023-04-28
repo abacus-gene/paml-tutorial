@@ -12,7 +12,7 @@ As every functional protein has some structural constraints, the $\omega$ ratio 
 
 ## What can I find in this repository?
 
-In this repository, you will find the data, the code, and step-by-step guidelines for reproducing the results in the `CODEML` protocol ([Álvarez-Carretero, et al. 2023](https://doi.org/10.1093/molbev/msad041)). We performed all positive selection analyses with `CODEML`, in the [PAML v4.10.6 package](https://github.com/abacus-gene/paml) ([Yang 2007](https://doi.org/10.1093/molbev/msm088)).
+In this repository, you will find the data, the code, and step-by-step guidelines for reproducing the results in the `CODEML` protocol ([Álvarez-Carretero, et al. 2023](https://academic.oup.com/mbe/article/40/4/msad041/7140562?searchresult=1&login=true)). We performed all positive selection analyses with `CODEML`, in the [PAML v4.10.6 package](https://github.com/abacus-gene/paml) ([Yang 2007](https://doi.org/10.1093/molbev/msm088)).
 
 We use the alignment and tree files for the myxovirus gene sequences from ten mammal species and two birds (outgroup) analysed by Huo et al. ([2007](https://pubmed.ncbi.nlm.nih.gov/17467195/)).
 [In direcyory `00_data`](00_data), we explain how we downloaded and parsed these sequences before we generated the alignment and the gene tree. Then, we carried out different tests for positive selection under the following models:
@@ -22,7 +22,7 @@ We use the alignment and tree files for the myxovirus gene sequences from ten ma
 * **Branch models** assume that $\omega$ varies among branches of the phylogeny and positive selection is detected along specific lineages if $\omega$ for the branches is $>1$.
 * **Branch-site models** assume that $\omega$ varies among branches of the phylogeny and across sites of the gene, and positive selection is detected if a subset of sites for specific branches of the phylogeny have $\omega>1$.
 
-[In directory `01_protocol_analyses`](01_protocol_analyses), you can find one directory for each of the analyses mentioned above, with the corresponding `README.md` file. All code snippets and explanations needed to run `CODEML` under each scenario according to our protocol ([Álvarez-Carretero et al. 2023](https://doi.org/10.1093/molbev/msad041)) are provided. [In directory `02_extra_analyses`](02_extra_analyses), you can find one directory for each of the new analyses that can be carried out with `CODEML` when (i) there are several genes that need to be analysed at once and (ii) some of these genes may have missing taxa.
+[In directory `01_protocol_analyses`](01_protocol_analyses), you can find one directory for each of the analyses mentioned above, with the corresponding `README.md` file. All code snippets and explanations needed to run `CODEML` under each scenario according to our protocol ([Álvarez-Carretero et al. 2023](https://academic.oup.com/mbe/article/40/4/msad041/7140562?searchresult=1&login=true)) are provided. [In directory `02_extra_analyses`](02_extra_analyses), you can find one directory for each of the new analyses that can be carried out with `CODEML` when (i) there are several genes that need to be analysed at once and (ii) some of these genes may have missing taxa.
 
 We hope that the protocol will be useful for illustrating the control-file settings and interpretations of the program outputs, enabling you to apply similar analyses to your own data.
 
@@ -30,5 +30,5 @@ We hope that the protocol will be useful for illustrating the control-file setti
 
 If you use any of the code we provide in this GitHub repository or consult the protocol for your own analyses, please cite:
 
-* [Álvarez-Carretero S, Kapli P, Yang Z. 2023. Beginner's guide on the use of PAML to detect positive selection, _Mol Biol Evol_, 40(4):msad041)](https://doi.org/10.1093/molbev/msad041).
+* [Álvarez-Carretero S, Kapli P, Yang Z. 2023. Beginner's guide on the use of PAML to detect positive selection, _Mol Biol Evol_, 40(4):msad041](https://academic.oup.com/mbe/article/40/4/msad041/7140562?searchresult=1&login=true).
 * [Yang Z. 2007. PAML 4: Phylogenetic analysis by maximum likelihood. _Mol Biol Evol_, 24(8):1586-1591](https://doi.org/10.1093/molbev/msm088).

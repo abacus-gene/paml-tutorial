@@ -31,4 +31,4 @@ We hope that the protocol will be useful for illustrating the control-file setti
 If you use any of the code we provide in this GitHub repository or consult the protocol for your own analyses, please cite:
 
 * [Álvarez-Carretero S, Kapli P, Yang Z. 2023. Beginner's guide on the use of PAML to detect positive selection, _Mol Biol Evol_, 40(4):msad041](https://academic.oup.com/mbe/article/40/4/msad041/7140562?searchresult=1&login=true).
-* [Yang Z. 2007. PAML 4: Phylogenetic analysis by maximum likelihood. _Mol Biol Evol_, 24(8):1586-1591](https://doi.org/10.1093/molbev/msm088).
+* [Yang Z. 2007. PAML 4: Phylogenetic analysis by maximum likelihood. _Mol Biol Evol_, 24(8):1586-1591](https://academic.oup.com/mbe/article/24/8/1586/1103731?login=true).

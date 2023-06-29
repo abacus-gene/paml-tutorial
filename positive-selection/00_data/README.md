@@ -100,7 +100,7 @@ The last step is to convert the alignment from FASTA to PHYLIP format. For that 
 # this README.md file is
 cd alignments/data1
 num=$( grep '>' data1_nuc_aln.fasta | wc -l )
-len=$( sed -n '2,2p' data1_nuc_aln.fasta | sed 's/\r//' | sed 's/\n//' | wc --m )
+len=$( sed -n '2,2p' data1_nuc_aln.fasta | sed 's/\r//' | sed 's/\n//' | wc -m )
 perl ../../scripts/FASTAtoPHYL.pl data1_nuc_aln.fasta $num $len 
 mv data1_nuc_aln.phy data1.phy
 ```

@@ -5,7 +5,7 @@ In this repository, you will find **tutorials** that you can use to further your
 Before going through the tutorials available in this repository, please make sure that you have correctly [**installed `PAML` as detailed in the section below**](#installing-paml-programs). In addition, please take your time to go through [the `PAML` Wiki](https://github.com/abacus-gene/paml/wiki) to familiarise yourself with the control files that you will need to use to run `PAML` programs as well as specific notation and format that you will need to consider when preparing your input files.
 
 > [!NOTE]
-> One of the main problems users face is related to **data formatting**. To this end, please make sure that you go through the **section [`Data formatting` in the PAML Wiki](https://github.com/abacus-gene/paml/wiki/Data-formatting)** before running `PAML` programs and format your input data files and control files accordingly.
+> One of the main problems users face is **data formatting**. To this end, please make sure that you go through the **section [`Data formatting` in the PAML Wiki](https://github.com/abacus-gene/paml/wiki/Data-formatting)** before running `PAML` programs and format your input data files and control files accordingly.
 
 > [!IMPORTANT]
 >

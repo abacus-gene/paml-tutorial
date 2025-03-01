@@ -1,0 +1,5 @@
+name;tip1;tip2;MCMCtree
+root;gibbon;sumatran;'U(1.0)'
+cb-h;chimpanzee;human;'B(.06,.08)'
+hcbg-os;sumatran;gorilla;'B(.12,.16)'
+

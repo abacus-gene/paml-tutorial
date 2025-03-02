@@ -510,7 +510,7 @@ plot( dk_mcmc3$k, ty = 'l', las = 1, ylim = c( 0,100 ),
   <img width="700" height="400" src="figs/fig5.png">
 </p>
 
->**QUESTION**: what differences can you observe after running the chain for longer?
+>**QUESTION**: what differences can you observe after running the chain for longer? What do you observe if you plot the traces for the chain saved in object `dk_mcmc4`?
 
 ### Example 3
 
@@ -542,7 +542,7 @@ plot( dk_mcmc_l$d, xlim = c( 1,200 ), ylim = c( 0,0.4 ), ty = "l" )
 lines( dk_mcmc_h$d, col = "red" )
 # Plot a horizontal dashed line to indicate (approximately)
 # the 95% CI
-abline( h = mean.d + 2 * c( -sd.d, sd.d ), lty = 2 )
+abline( h = mean_d + 2 * c( -sd.d, sd.d ), lty = 2 )
 ```
 
 <p align="center">
@@ -551,7 +551,7 @@ abline( h = mean.d + 2 * c( -sd.d, sd.d ), lty = 2 )
 
 ### Example 4
 
-Lastly, we will run two chains with different starting values so that we can compare their efficiency:
+Lastly, we will run two chains with different starting values so that we can assess the impact that chain efficiency may have on chain convergence for these specific runs:
 
 ```r
 # Run an efficient chain (i.e., good proposal step sizes)
@@ -559,38 +559,18 @@ dk_mcmc_b <- mcmcf( init_d = 0.05, init_k = 5, N = 1e4,
                     w_d = 0.12, w_k = 180 )
 
 # Run an inefficient chain (i.e., bad proposal step sizes)
-dk_mcmc3_b <- mcmcf( init_d  = 0.05, init_k = 5, N = 1e4,
+dk_mcmc3_b <- mcmcf( init_d = 0.05, init_k = 5, N = 1e4,
                      w_d = 3, w_k = 5 )
-
-# Plot and compare histograms
-# Set breaking points for the plot
-bks <- seq( from = 0, to = 150, by = 1 )
-# Start plotting
-par( mfrow = c( 1, 2 ) )
-hist( x = dk_mcmc_b$k, prob = TRUE, breaks = bks, border = NA,
-      col = rgb( 0, 0, 1, 0.5 ), las = 1, xlab = "kappa",
-      xlim = c( 0, 100 ), ylim = c( 0, 0.055 ) )
-hist( x = dk_mcmc$k, prob = TRUE, breaks = bks, border = NA,
-      col = rgb( 0.5, 0.5, 0.5, 0.5 ), add = TRUE )
-hist( x = dk_mcmc3_b$k, prob = TRUE, breaks = bks, border = NA,
-      col = rgb( 0, 0, 1, 0.5 ), las = 1, xlab = "kappa",
-      xlim = c( 0,100 ), ylim = c( 0,.055 ) )
-hist( x = dk_mcmc3$k, prob = TRUE, breaks = bks, border = NA,
-      col = rgb( 0.5, 0.5, 0.5, 0.5 ), add = TRUE )
 ```
 
-<p align="center">
-  <img width="800" height="400" src="figs/fig7.png">
-</p>
-
-Following our previous example, we will now calculate the mean and the standard deviation for both parameters and for each chain. Then, we will plot the corresponding densities with the aim to make it easier to evaluate chain efficiency:
+Following our previous example, we will now calculate the mean and the standard deviation for both parameters and for each chain. Then, we will plot the corresponding densities with the aim to make it easier to evaluate chain convergence:
 
 ```r
 # A) Calculate the posterior means and s.d for each chain
-# Calculate mean for d and k for efficient chains (they are quite similar)
+# Calculate mean of d and k for efficient chains (they are quite similar)
 mean( dk_mcmc$d ); mean( dk_mcmc_b$d )
 mean( dk_mcmc$k ); mean( dk_mcmc_b$k )
-# Calculate mean for d and k for inefficient chains (not so similar)
+# Calculate mean of d and k for inefficient chains (not so similar)
 mean( dk_mcmc3$d ); mean( dk_mcmc3_b$d )
 mean( dk_mcmc3$k ); mean( dk_mcmc3_b$k )
 # Standard error of the means for efficient chains
@@ -615,7 +595,7 @@ lines( x = density( x = dk_mcmc3$k, adjust = adj ), col = "black" )
 ```
 
 <p align="center">
-  <img width="800" height="400" src="figs/fig8.png">
+  <img width="800" height="400" src="figs/fig7.png">
 </p>
 
 ---

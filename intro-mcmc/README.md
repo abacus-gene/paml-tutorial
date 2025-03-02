@@ -6,7 +6,7 @@
 
 ## Software requirements
 
-We are going to use the graphical interface `RStudio` to run the various code snippets written in `R` that you shall find in this tutorial. Before starting the tutorial, please follow the guidelines to install `R` and `RStudio` if you have not already installed them:
+We are going to use the graphical interface `RStudio` to run the various code snippets written in `R` that you shall find in this tutorial. Before getting started, please follow the guidelines to install `R` and `RStudio` if you have not already installed them:
 
 * `R`: please download `R` before `RStudio` to avoid any complications. To download `R`, and based on your OS, [please select either `Download R for Linux`, `Download R for macOS`, or `Download R for Windows` via this link](https://cran.r-project.org/); then follow the corresponding installation instructions for the latest stable version.
 
@@ -23,7 +23,7 @@ The data that we will be using for this practical session is the 12S rRNA alignm
 
 > **Table 1**. Numbers and frequencies (in parantheses) of sites for the 16 site configurations (patterns) in human and orangutan mitochondrial 12s rRNA genes. This table is based on Table 1.3, page 7 in [Yang (2014)](http://abacus.gene.ucl.ac.uk/MESA/).
 
-| Orangutan (below) \ Human (right)         | T               | C             | A              | G              | Sum ($\pi_{i}$)|
+| Orangutan (below) \ Human (right)         | T               | C             | A              | G              | Sum $\pi_{i}$  |
 |-------------------------------------------|-----------------|---------------|----------------|----------------|----------------|
 | T                                         | 179 (0.188819)  | 23 (0.024262) | 1 (0.001055)   | 0 (0)          | 0.2141         |
 | C                                         | 30 (0.03164646) | 219 (0.231013)| 2 (0.002110)   | 0 (0)          | 0.2648         |
@@ -64,7 +64,7 @@ $$\mathrm{Q=}\left(\begin{array}{cccc}
 1 & 1 & \kappa & .
 \end{array}\right)$$
 
-When defining the log-likelihood function ($f(D|d,k)$ in this tutorial), we must decide which **arguments** we need to include. E.g.: we need to consider the **parameters we are keen on estimating** (e.g., in this tutorial, $\kappa$ as the free model parameter of K80 and $d$ as the distance between orangutan and human sequences in our dataset) and our **data**. In this example, the arguments we are going to specify in our function are the following:
+When defining the log-likelihood function ($f(D|d,k)$ in this tutorial), we must decide which **arguments** we need to include. E.g.: we need to consider the **parameters we are keen on estimating** (e.g., in this tutorial, $\kappa$ as the free parameter in the K80 model and $d$ as the distance between orangutan and human sequences) and our **data**. In this example, the arguments we are going to specify in our function are the following:
 
 * **Distance**, $d$.
 * **Transition/transversion ratio**, $\kappa$.
@@ -147,7 +147,7 @@ Given that we have calculated the likelihood of our data for each specified pair
 Pos <- Pri * L
 ```
 
-Once we have calculated the prior, the likelihood of the data, and the unscaled posterior densities, we can plot them using the code snippet below:
+Once we have calculated the prior, the likelihood of the data, and the unscaled posterior, we can plot the corresponding densities by using the code snippet below:
 
 ```r
 # Plot prior, likelihood, and unscaled posterior densities
@@ -190,11 +190,11 @@ In this example, instead of calculating our target density (posterior) using the
 
 $$f(\kappa,d|D)=\frac{f(d)f(\kappa)f(D|d,\kappa)}{z}$$
 
-... we are going to learn how we can **approximate** it instead during the MCMC:
+... we are going to learn how we can **approximate** it during the MCMC:
 
 $$f(\kappa,d|D)\propto f(d)f(\kappa)f(D|d,\kappa)$$
 
-Following the first part of this tutorial, remember that we have (i) assumed that the sequences in our data evolve under the K80 model, which we use to specify the log-likelihood function, and (ii) specified two Gamma priors for our parameters of interest based on our prior knowledge: $f(d)=\Gamma(d|2,20)$ and $f(\kappa)=\Gamma(\kappa|2,.1)$. Now, we have everything we need to write a function in R that returns the unscaled posterior density when considering all the paired values of $d$ and $\kappa$:
+Following the first part of this tutorial, remember that we have (i) assumed that the sequences in our data evolve under the K80 model (we defined our log-likelihood function based on this model), and (ii) specified two Gamma priors for our parameters of interest based on our prior knowledge: $f(d)=\Gamma(d|2,20)$ and $f(\kappa)=\Gamma(\kappa|2,0.1)$. Now, we have everything we need to write a function in R that returns the unscaled posterior density when considering all the paired values of $d$ and $\kappa$:
 
 ```r
 # Define function that returns the logarithm of the unscaled posterior:
@@ -245,10 +245,10 @@ Once we have defined the function to calculate the unscaled posterior distributi
 
 The algorithm that we will write follows the structure below:
 
-* Part A: Firstly, set initial states for $d$ and $\kappa$.
+* Part A: Firstly, set initial values for parameters $d$ and $\kappa$.
 * Part B: Then, for every $n_{th}$ iteration:
   1. Propose a new state $d^{*}$ from an appropriate proposal density.
-  2. Accept or reject the proposal with probability: $\mathrm{min}(1,p(d^{*})p(x|d^{*})/p(d)p(x|d))$. If the proposal is accepted, then keep $d=d^{*}$. Otherwise, keep current state for $d$ for the next iteration, $d=d$.
+  2. Accept or reject the proposal with probability: $\mathrm{min}(1,p(d^{\*})p(x|d^{\*})/p(d)p(x|d))$. If the proposal is accepted, then keep $d=d^{*}$. Otherwise, keep current state for $d$ for the next iteration, $d=d$.
   3. Save $d$.
   4. Repeat steps 1-3 for $\kappa$.
   5. Go to step 1.
@@ -449,9 +449,9 @@ eff( acf = acf( dk_mcmc2$k ) )
 
 >**QUESTION**: what can you say about this chain with regards to the efficiency values you have just calculated?
 
-### Time to practice
+## PART 4: Time to practice
 
-#### Example 1
+### Example 1
 
 We will now run another MCMC but, this time, we shall use a very large step size for parameter $d$ (i.e., `w_d = 3`) and a very small step size for parameter $\kappa$ (i.e., `w_k = 5`):
 
@@ -477,9 +477,9 @@ plot( x = dk_mcmc3$k, ty = 'l', main = "Trace of k", cex.main = 2.0,
 
 >**QUESTION**: what can you say about the efficiency of this chain?
 
-#### Example 2
+### Example 2
 
-We can also try to run the chain for longer but, this time, we shall keep the same starting values for the rest of the parameter:
+We can also try to run the chain for longer but, this time, we shall keep the same starting values for the rest of the parameters:
 
 ```r
 # Run MCMC
@@ -512,7 +512,7 @@ plot( dk_mcmc3$k, ty = 'l', las = 1, ylim = c( 0,100 ),
 
 >**QUESTION**: what differences can you observe after running the chain for longer?
 
-#### Example 3
+### Example 3
 
 We will now run two different chains: one with a high starting value for parameters $d$ and $\kappa$ and another with a low starting value for these two parameters:
 
@@ -549,7 +549,7 @@ abline( h = mean.d + 2 * c( -sd.d, sd.d ), lty = 2 )
   <img width="400" height="400" src="figs/fig6.png">
 </p>
 
-#### Example 4
+### Example 4
 
 Lastly, we will run two chains with different starting values so that we can compare their efficiency:
 

@@ -539,11 +539,13 @@ dk_mcmc_h <- mcmcf( init_d = 0.4, init_k = 20, N = 1e4,
 Next, we can calculate the mean and the standard deviation of parameters $d$ and $\kappa$:
 
 ```r
-# Calculate mean and sd for d and k
+# Calculate mean, sd, and 95% CIs for d and k
 mean_d <- mean( dk_mcmc_l$d )
 sd_d   <- sd( dk_mcmc_l$d )
+CI_d   <- quantile( dk_mcmc_l$d, probs = c( 0.05, 0.95 ) )
 mean_k <- mean( dk_mcmc_l$k )
 sd_k   <- sd( dk_mcmc_l$k )
+CI_k   <- quantile( dk_mcmc_l$k, probs = c( 0.05, 0.95 ) )
 ```
 
 If we plot the last two chains we ran (i.e., "low" and "high" starting values), we can observe how they move from high (or low) starting values towards the stationary phase (the area within the dashed lines). The area before the chain reaches stationarity is what we call the "burn-in" phase:
@@ -552,9 +554,9 @@ If we plot the last two chains we ran (i.e., "low" and "high" starting values), 
 # Plot the two chains
 plot( dk_mcmc_l$d, xlim = c( 1,200 ), ylim = c( 0,0.4 ), ty = "l" )
 lines( dk_mcmc_h$d, col = "red" )
-# Plot a horizontal dashed line to indicate (approximately)
+# Plot a horizontal dashed line to indicate
 # the 95% CI
-abline( h = mean_d + 2 * c( -sd_d, sd_d ), lty = 2 )
+abline( h = c( CI_d[1], CI_d[2] ), lty = 2, col = "#023903" )
 ```
 
 <p align="center">
@@ -578,19 +580,19 @@ dk_mcmc3_b <- mcmcf( init_d = 0.05, init_k = 5, N = 1e4,
 Following our previous example, we will now calculate the mean and the standard deviation for both parameters and for each chain. Then, we will plot the corresponding densities with the aim to make it easier to evaluate chain convergence:
 
 ```r
-# A) Calculate the posterior means and sd for each chain
+# A) Calculate the posterior means and 95% CIs for each chain
 # Calculate mean of d and k for efficient chains (they are quite similar)
 mean( dk_mcmc$d ); mean( dk_mcmc_b$d )
 mean( dk_mcmc$k ); mean( dk_mcmc_b$k )
 # Calculate mean of d and k for inefficient chains (not so similar)
 mean( dk_mcmc3$d ); mean( dk_mcmc3_b$d )
 mean( dk_mcmc3$k ); mean( dk_mcmc3_b$k )
-# Standard error of the means for efficient chains
-sqrt( 1/1e4 * var( dk_mcmc$d ) / 0.23 ) # roughly 2.5e-4
-sqrt( 1/1e4 * var( dk_mcmc$k ) / 0.20 ) # roughly 0.2
-# Standard error of the means for inefficient chain
-sqrt( 1/1e4 * var( dk_mcmc3$d ) / 0.015 ) # roughly 9.7e-4
-sqrt( 1/1e4 * var( dk_mcmc3$k ) / 0.003 ) # roughly 1.6
+# 95% CI of d and k for efficient chains
+quantile( dk_mcmc$d, probs = c( 0.05, 0.95 ) )
+quantile( dk_mcmc_b$d, probs = c( 0.05, 0.95 ) )
+# 95% CI of d and k for inefficient chains
+quantile( dk_mcmc3$d, probs = c( 0.05, 0.95 ) )
+quantile( dk_mcmc3_b$d, probs = c( 0.05, 0.95 ) )
 
 # B) Plot densities for efficient and inefficient chains
 # Set scaling value to easily compare the chains
@@ -613,8 +615,8 @@ lines( x = density( x = dk_mcmc3$k, adjust = adj ), col = "black" )
 ### Now... Your turn!
 
 In the examples above, you have seen how different MCMC settings can end up affecting chain efficiency, autocorrelation, and convergence. You have also learnt which types of plots you can use to assess the quality of the chains as well as how to summarise the samples you have collected during MCMC. Now, it is time to put in practice everything you have learnt with the following exercise!<br><br>
-If you scroll up and find the function where we wrote our MCMC algorithm, function `mcmcf`, you shall see that there are four arguments that we have not yet included in the examples above: the arguments to specify the gamma priors for parameters $\kappa$ and $d$: `a_d` ($\alpha$) and `b_d` ($\beta$) for the gamma prior on $d$ and `a_k` ($\alpha$) and `b_k` ($\beta$) for the prior on $\kappa$.<br><br>
-**EXERCISE**: Firstly, try to find out the best step sizes for $\kappa$ (`w_k`) and $d$ (`w_d`) proposals by trying different combinations of values for for `w_k` and `w_d`. You can check the efficiency of the chain you ran with the efficiency function we provide you with in this tutorial and, after you run function `mcmcf`, a message is printed on the screen with the acceptance proposals for $\kappa$ and $d$ (you may want to save those to compare different chains too!). You may run as many MCMCs as you think you need!<br><br>
+**EXERCISE**: If you scroll up and find the function where we wrote our MCMC algorithm, function `mcmcf`, you shall see that there are four arguments that we have not yet included in the examples above: the arguments to specify the gamma priors for parameters $\kappa$ and $d$: `a_d` ($\alpha$) and `b_d` ($\beta$) for the gamma prior on $d$ and `a_k` ($\alpha$) and `b_k` ($\beta$) for the prior on $\kappa$.<br><br>
+Firstly, try to find out the best step sizes for $\kappa$ (`w_k`) and $d$ (`w_d`) proposals by trying different combinations of values for for `w_k` and `w_d`. You can check the efficiency of the chain you ran with the efficiency function we provide you with in this tutorial and, after you run function `mcmcf`, a message is printed on the screen with the acceptance proposals for $\kappa$ and $d$ (you may want to save those to compare different chains too!). You may run as many MCMCs as you think you need!<br><br>
 Once you are happy with the values of `w_k` and `w_d` after assessing chain efficiency, you shall then fix those values in function `mcmcf` and try to assess the impact that different gamma priors can have on $\kappa$ and $d$ estimates. You can choose different shape ($\alpha$) and scale ($\beta$) parameter values and compare the estimated mean $\kappa$ and $d$ estimates as well as the 95% CI. You can then explore which $\alpha$ and $\beta$ values for these two gamma priors yield more (or less) accurate parameter estimates!
 
 ---

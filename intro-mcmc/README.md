@@ -84,7 +84,7 @@ When defining the log-likelihood function ($f(D|d,k)$ in this tutorial), we must
 #   n  Numeric, length of the alignment | Default: 948
 #   ns Numeric, total number of transitions | Default: 84
 #   nv Numeric, total number of transversions | Default: 6
-k80.lnL <- function( d, k, n = 948, ns = 84, nv = 6 ) {
+k80_lnL <- function( d, k, n = 948, ns = 84, nv = 6 ) {
 
   # Define probabilities
   p0 <- .25 + .25 * exp( -4*d / ( k+2 ) ) + .5 * exp( -2*d*( k+1 ) / ( k+2 ) )
@@ -113,7 +113,7 @@ k_v <- seq( from = 0, to = 100, len = dim )
 dk  <- expand.grid( d = d_v, k = k_v )
 ```
 
-As expected, the resulting data frame object `dk` has 10,000 rows and 2 columns, which means that a total of 10,000 combinations for $d$ and $\kappa$ values have been recorded in this object. Now, we can pass these paired values of $d$ and $\kappa$ to arguments `d` and `k` specified in our `k80.lnL` function to calculate the log-likelihood of our data!
+As expected, the resulting data frame object `dk` has 10,000 rows and 2 columns, which means that a total of 10,000 combinations for $d$ and $\kappa$ values have been recorded in this object. Now, we can pass these paired values of $d$ and $\kappa$ to arguments `d` and `k` specified in our `k80_lnL` function to calculate the log-likelihood of our data!
 
 > [!IMPORTANT]
 > We will save the log-likelihood values of our data given each pair of $d$ and $k$ values in a matrix (i.e., see object `lnL` in code snippet below). In order for us to generate some plots later, we are also re-scaling the log-likelihood values and calculating the corresponding likelihood values:
@@ -121,7 +121,7 @@ As expected, the resulting data frame object `dk` has 10,000 rows and 2 columns,
 ```r
 # Calculate log-likelihood of the data, f(D|d,k),
 # for all paired values of d and k
-lnL <- matrix( k80.lnL( d = dk$d, k = dk$k ), ncol = dim )
+lnL <- matrix( k80_lnL( d = dk$d, k = dk$k ), ncol = dim )
 
 # Re-scale the log-likelihood values and calculate
 # the likelihood of the data for all paired values
@@ -263,7 +263,16 @@ The algorithm that we will write follows the structure below:
 #   N       Numeric, number of iterations that the MCMC will run.
 #   w_d     Numeric, width of the sliding-window proposal for d.
 #   w_k     Numeric, width of the sliding-window proposal for k.
-mcmcf <- function( init_d, init_k, N, w_d, w_k ) {
+#   a_d     Numeric, value for parameter alpha in Gamma prior
+#           for the distance (d) | Default: 2
+#   b_d     Numeric, value for parameter beta in Gamma prior
+#           for parameter distance (d) | Default: 20
+#   a_k     Numeric, value for parameter alpha in Gamma prior
+#           for parameter kappa (k) | Default: 2
+#   b_k     Numeric, value for parameter beta in Gamma prior
+#           for parameter kappa (k) | Default: 0.1
+mcmcf <- function( init_d, init_k, N, w_d, w_k,
+                   a_d = 2, b_d = 20, a_k = 2, b_k = 0.1 ) {
 
   # We keep the visited states for model parameters d and k
   # in vectors sample_d and sample_k for easy access
@@ -279,7 +288,8 @@ mcmcf <- function( init_d, init_k, N, w_d, w_k ) {
   d <- init_d;  sample_d[1] <- init_d
   k <- init_k;  sample_k[1] <- init_k
   # 1.2. Calculate unnormalised posterior
-  ulnP  <- ulnPf( d = d, k = k )
+  ulnP  <- ulnPf( d = d, k = k, a_d = a_d, b_d = b_d,
+                  a_k = a_k, b_k = b_k )
   # 1.3. Initialise numeric vectors that will be used to keep track of
   #      the number of times proposed values for each parameter,
   #      d and k, have been accepted
@@ -298,7 +308,8 @@ mcmcf <- function( init_d, init_k, N, w_d, w_k ) {
     if ( dprop < 0 ) dprop <- -dprop
     # 2.3. Calculate unnormalised posterior with the new
     #      proposed value dprop
-    ulnPprop <- ulnPf( d = dprop, k = k )
+    ulnPprop <- ulnPf( d = dprop, k = k, a_d = a_d, b_d = b_d,
+                       a_k = a_k, b_k = b_k )
     lnalpha  <- ulnPprop - ulnP
 
     # STEP 3: Accept or reject the proposal:
@@ -317,7 +328,8 @@ mcmcf <- function( init_d, init_k, N, w_d, w_k ) {
     if ( kprop < 0 ) kprop <- -kprop
     # 4.3. Calculate unnormalised posterior with new proposed
     #      value kprop
-    ulnPprop <- ulnPf( d = d, k = kprop )
+    ulnPprop <- ulnPf( d = d, k = kprop, a_d = a_d, b_d = b_d,
+                       a_k = a_k, b_k = b_k )
     lnalpha  <- ulnPprop - ulnP
     # 4.4. Accept/reject proposal:
     #            if ru < alpha accept proposed value kprop
@@ -542,7 +554,7 @@ plot( dk_mcmc_l$d, xlim = c( 1,200 ), ylim = c( 0,0.4 ), ty = "l" )
 lines( dk_mcmc_h$d, col = "red" )
 # Plot a horizontal dashed line to indicate (approximately)
 # the 95% CI
-abline( h = mean_d + 2 * c( -sd.d, sd.d ), lty = 2 )
+abline( h = mean_d + 2 * c( -sd_d, sd_d ), lty = 2 )
 ```
 
 <p align="center">
@@ -566,7 +578,7 @@ dk_mcmc3_b <- mcmcf( init_d = 0.05, init_k = 5, N = 1e4,
 Following our previous example, we will now calculate the mean and the standard deviation for both parameters and for each chain. Then, we will plot the corresponding densities with the aim to make it easier to evaluate chain convergence:
 
 ```r
-# A) Calculate the posterior means and s.d for each chain
+# A) Calculate the posterior means and sd for each chain
 # Calculate mean of d and k for efficient chains (they are quite similar)
 mean( dk_mcmc$d ); mean( dk_mcmc_b$d )
 mean( dk_mcmc$k ); mean( dk_mcmc_b$k )
@@ -597,6 +609,13 @@ lines( x = density( x = dk_mcmc3$k, adjust = adj ), col = "black" )
 <p align="center">
   <img width="800" height="400" src="figs/fig7.png">
 </p>
+
+### Now... Your turn!
+
+In the examples above, you have seen how different MCMC settings can end up affecting chain efficiency, autocorrelation, and convergence. You have also learnt which types of plots you can use to assess the quality of the chains as well as how to summarise the samples you have collected during MCMC. Now, it is time to put in practice everything you have learnt with the following exercise!<br><br>
+If you scroll up and find the function where we wrote our MCMC algorithm, function `mcmcf`, you shall see that there are four arguments that we have not yet included in the examples above: the arguments to specify the gamma priors for parameters $\kappa$ and $d$: `a_d` ($\alpha$) and `b_d` ($\beta$) for the gamma prior on $d$ and `a_k` ($\alpha$) and `b_k` ($\beta$) for the prior on $\kappa$.<br><br>
+**EXERCISE**: Firstly, try to find out the best step sizes for $\kappa$ (`w_k`) and $d$ (`w_d`) proposals by trying different combinations of values for for `w_k` and `w_d`. You can check the efficiency of the chain you ran with the efficiency function we provide you with in this tutorial and, after you run function `mcmcf`, a message is printed on the screen with the acceptance proposals for $\kappa$ and $d$ (you may want to save those to compare different chains too!). You may run as many MCMCs as you think you need!<br><br>
+Once you are happy with the values of `w_k` and `w_d` after assessing chain efficiency, you shall then fix those values in function `mcmcf` and try to assess the impact that different gamma priors can have on $\kappa$ and $d$ estimates. You can choose different shape ($\alpha$) and scale ($\beta$) parameter values and compare the estimated mean $\kappa$ and $d$ estimates as well as the 95% CI. You can then explore which $\alpha$ and $\beta$ values for these two gamma priors yield more (or less) accurate parameter estimates!
 
 ---
 ---

@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > This tutorial is based on the [`mcmc.K80.R` `R` script](https://github.com/mariodosreis/Bayesian_tutorial/blob/master/K80/mcmc.K80.R), which is part of the [`Bayesian_tutorial` repository](https://github.com/mariodosreis/Bayesian_tutorial) created by **Fabricia F. Nascimento** ([@thednainus](https://github.com/thednainus)), **Mario dos Reis** ([@mariodosreis](https://github.com/mariodosreis)), and **Ziheng Yang** ([@abacus-gene](https://github.com/abacus-gene)) as part of their article ["A biologist's guide to Bayesian phylogenetic analysis" (Nascimento et al. 2017)](http://rdcu.be/v4jM).<br><br>
->Before getting started, you are encouraged to read [Nascimento et al. (2017)](http://rdcu.be/v4jM) to gain a better understanding of the theory behind Bayesian phylogenetics so that you can make the most out of this tutorial!
+> Before getting started, you are encouraged to read [Nascimento et al. (2017)](http://rdcu.be/v4jM) to gain a better understanding of the theory behind Bayesian phylogenetics so that you can make the most out of this tutorial!
 
 ## Software requirements
 
@@ -31,7 +31,7 @@ The data that we will be using for this practical session is the 12S rRNA alignm
 | G                                         | 0 (0)           | 0 (0)         | 21 (0.022152)  | 169 (0.178270) | 0.2004         |
 | Sum($\pi_{j}$)                            | 0.2226          | 0.2563        | 0.3323         | 0.1888         | 1              |
 
-> *Note*: GenBank accession numbers for the human and orangutan sequences are `D38112` and `NC_001646`, respectively ([Horai et al. (1995)](https://pubmed.ncbi.nlm.nih.gov/7530363/)). There are 954 sites in the alignment, but six sites involve alignment gaps and are removed, leaving 948 sites in each sequence. The average base frequencies in the two sequences are 0.2184 (T), 0.2605 (C), 0.3265 (A), and 0.1946 (G).
+> *Note*: GenBank accession numbers for the human and orangutan sequences are `D38112` and `NC_001646`, respectively ([Horai et al. 1995](https://pubmed.ncbi.nlm.nih.gov/7530363/)). There are 954 sites in the alignment, but six sites involve alignment gaps and are removed, leaving 948 sites in each sequence. The average base frequencies in the two sequences are 0.2184 (T), 0.2605 (C), 0.3265 (A), and 0.1946 (G).
 
 ### Analysing the data under a specific evolutionary model
 

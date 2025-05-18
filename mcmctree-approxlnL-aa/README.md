@@ -57,6 +57,9 @@ mkdir -p 00_CODEML
 cp ../01_ctl_files/mcmctree_codeml.ctl 00_CODEML/
 ```
 
+> [!IMPORTANT]
+> This control file is compatible with `PAML` versions 4.10.9 or older. As described in the [`PAML Wiki`](https://github.com/abacus-gene/paml/wiki/MCMCtree#control-file), users need to now specify the type of construction they want for the tree prior through variable `BDparas`: either the multiplicative construction (i.e.,  add `m` or `M` as the last option for variable `BDparas`) or the conditional construction (i.e., add `c` or `C` as the last option for variable `BDparas`). You have more details about each of these constructions in the [`PAML Wiki` (section `Control File`)](https://github.com/abacus-gene/paml/wiki/MCMCtree#control-file) under bullet point `BDparas` (e.g., you can search for this keyword using `ctrl+F` or `cmd+F`, depending on your OS). Please note that you shall get the following error if you try to use control files that would be compatible with `PAML` versions older than v4.10.9: `error: Flag for birth-death process prior expected: C for conditional, M for multiplicative`. If you are running this tutorial with your own data and you are running `PAML` v4.10.9 or later, please update your control files accordingly.
+
 Now, you will see that we have created a new directory, `00_CODEML`, where the control file we will be using can be found. If we wanted, we could either use commands such as `sed` to update the paths to the input sequence, tree, and matrix files using relative or absolute paths. E.g., given that our working directory will be `00_CODEML`, we will need to go back two directories to access directory `00_inp_data`, which would result in the following relative paths: `seqfile = ../../00_inp_Data/mtCDNApri.phy`,  `treefile = ../../00_inp_data/mtCDNApri.trees`, `aaRatefile = ../../00_inp_data/lg.dat`. Nevertheless, we will keep things a bit simpler and copy these input files inside directory `00_CODEML` so that we just keep the name of the input files in the control file:
 
 ```sh
@@ -89,9 +92,9 @@ We can now stop and take a look at how the control file looks like now:
 
      cleandata = 0        * remove sites with ambiguity data (1:yes, 0:no)?
 
-       BDparas = 1 1 0.1  * birth, death, sampling
-   rgene_gamma = 2 20     * gammaDir prior for rate for genes
-  sigma2_gamma = 1 10     * gammaDir prior for sigma^2     (for clock=2 or 3)
+       BDparas = 1 1 0.1 m * birth, death, sampling, type of construction
+   rgene_gamma = 2 20      * gammaDir prior for rate for genes
+  sigma2_gamma = 1 10      * gammaDir prior for sigma^2     (for clock=2 or 3)
 
          print = 1        * 0: no mcmc sample; 1: everything except branch rates 2: everything
         burnin = 1000     * Number of iterations that will be discarded as part of burn-in
@@ -119,7 +122,7 @@ As aforementioned, we will not let the command above run `MCMCtree` until the en
 *** Locus 1 ***
 running codeml tmp0001.ctl
 
-AAML in paml version 4.10.7, June 2023
+AAML in paml version 4.10.9, 7 May 2025
 ns = 7          ls = 469
 Reading sequences, sequential format..
 Reading seq # 7: gibbon
@@ -138,13 +141,23 @@ When running the command above, we just wanted to execute `MCMCtree` with option
 
 Once the job is killed and the `tmp*` files are created, we can run the following commands to make sure that the correct settings to run `CODEML` are enabled:
 
+> [!IMPORTANT]
+> If you are a Mac user and you have not configured the `sed` command so that it works as in a Linux-based computer, please skip the next code snippet and run the one that you shall see afterwards!
+
 ```sh
 ## Run from `00_CODEML`.
-# Update `method`
+# See the content of the control file
+cat tmp0001.ctl
+# We want `method = 1`; update this variable
+# accordingly
 sed -i 's/method\ \=\ 0/method\ \=\ 1/' tmp0001.ctl
+# Print again the control file to check
+# that the control file has been
+# successfully updated
+cat tmp0001.ctl
 ```
 
-If you are a Mac user and have issues with `sed`, please run the following command instead. If you have successfully run the command above, please skip the next code snippet:
+If you are a Mac user and have issues with the `sed` command, please run the following command instead. If you have successfully run the command above, please skip the next code snippet:
 
 ```sh
 ## Run from `00_CODEML`.

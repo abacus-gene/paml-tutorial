@@ -18,10 +18,9 @@
      cleandata = 0    * remove sites with ambiguity data (1:yes, 0:no)?
     aaRatefile = ../../../../00_inp_data/lg.dat   * Path to the file with the LG matrix
 
-       BDparas = 1 1 0.1    * birth, death, sampling
-
-   rgene_gamma = 2 20     * gammaDir prior for rate for genes
-  sigma2_gamma = 1 10     * gammaDir prior for sigma^2
+       BDparas = 1 1 0.1 m * birth, death, sampling
+   rgene_gamma = 2 20      * gammaDir prior for rate for genes
+  sigma2_gamma = 1 10      * gammaDir prior for sigma^2
 
          print = -1       * 0: no mcmc sample; 1: everything except branch rates 2: everything
         burnin = 1000     * Number of iterations that will be discarded as part of burn-in

@@ -623,9 +623,9 @@ done
 
 There are many software that you can currently use to display your estimated evolutionary timeline. If you are keen on generating a nice figure ready for publication (and using files that you can later use as templates for similar plots!), you can check `TreeViewer` ([Bianchini and Sánchez-Baracaldo, 2024](https://doi.org/10.1002/ece3.10873)). We have included more details about how to generate such figures with the example data you have been working with! Please navigate to [directory `03_TreeViewer_plots`](03_TreeViewer_plots/README.md) to read more about this program and access the figures and `tbi` files we have created (more about this in the relevant [`README.md` file!](03_TreeViewer_plots/README.md)).
 
-## Access the output MCMC files
+## Access the MCMC output files
 
-If you want to check whether you have managed to reproduce our file structure and generate the expected output files (please note that the samples collected during MCMC may vary unless you have used the same seed numbers we did!), you can access the [`out_MCMC` directory](out_MCMC). Alternatively, you can directly download [the compressed `01_MCMCtree.zip` file](out_MCMC/01_MCMCtree.zip) if you have not already downloaded it as part of cloning this repository.
+If you want to check whether you have managed to reproduce our file structure and generate the expected MCMC output files (please note that the samples collected during MCMC may vary unless you have used the same seed numbers we did!), you can directly download [the compressed `01_MCMCtree.zip` file](out_MCMC/01_MCMCtree.zip) (if you have cloned the repository, you should have already downloaded this!).
 
 ---
 ---

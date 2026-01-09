@@ -24,9 +24,6 @@ Please note that we have changed the calibration notation in [our tree file](00_
 
 We have saved the input tree and sequence files in directory [`00_inp_data`](00_inp_data). We used the [available control file](https://github.com/abacus-gene/paml/blob/master/examples/DatingSoftBound/mcmctree.ctl) as a template to create our [own template control files for today's analyses](01_ctl_files), which follow the formatting recommended to use in the latest `PAML` release.
 
-> [!NOTE]
-> We have also included an alignment with the first two codon positions of the back-translated unambiguous nucleotide alignment ([`mtCDNApri_nuc.phy`](00_inp_data/mtCDNApri_nuc.phy)) based on the original partitioned alignment in the [`PAML` GitHub repository](https://github.com/abacus-gene/paml/blob/master/examples/DatingSoftBound/mtCDNApri123.txt). If we have time, we will explain how to analyse a partitioned dataset but, to keep things simple first, we shall proceed with a concatenated alignment.
-
 ## Analyses with `PAML` programs
 
 In this practical session, you will learn how to run `PAML` programs to approximate the likelihood calculation implemented by [dos Reis and Yang (2011)](https://academic.oup.com/mbe/article/28/7/2161/1051613), which has shown to speed up Bayesian timetree inference up to 1000x compared to the exact calculation of the likelihood ([Felsenstein, 1981](https://pubmed.ncbi.nlm.nih.gov/7288891/)) without loosing accuracy ([Battistuzzi et al., 2011](https://pubmed.ncbi.nlm.nih.gov/21498604/)).
@@ -73,7 +70,7 @@ cp ../../00_inp_data/lg.dat .
 We can now stop and take a look at how the control file looks like now:
 
 ```text
-          seed = -1                * Used timestamp to define seed number
+          seed = -1                * Seed number, type -1 to generate a random seed number
        seqfile = mtCDNApri.phy     * Path to input sequence file
       treefile = mtCDNApri.trees   * Path to input tree file
       mcmcfile = mcmc.txt          * Path to output file with MCMC samples
@@ -82,21 +79,24 @@ We can now stop and take a look at how the control file looks like now:
          ndata = 1        * Number of partitions
        seqtype = 2        * 0: nucleotides; 1:codons; 2:AAs
        usedata = 3        * 0: no data (prior); 1:exact likelihood; 2:approximate likelihood; 3:out.BV (in.BV)
-         clock = 3        * 1: global clock; 2: independent rates; 3: correlated rates
+     cleandata = 0        * Remove sites with ambiguity data (1:yes, 0:no)?
 
          model = 3        * 0:poisson, 1:proportional,2:Empirical,3:Empirical+F
                           * 6:FromCodon, 8:REVaa_0, 9:REVaa(nr=189)
-         alpha = 0.5      * alpha for gamma rates at sites
-         ncatG = 5        * No. categories in discrete gamma
+         alpha = 0.5      * Alpha for gamma rates at sites
+         ncatG = 5        * Number categories in discrete gamma
+         clock = 3        * 1: global clock; 2: independent rates; 3: correlated rates
     aaRatefile = lg.dat   * Path to the file with the LG matrix
 
-     cleandata = 0        * remove sites with ambiguity data (1:yes, 0:no)?
 
-       BDparas = 1 1 0.1 m * birth, death, sampling, type of construction
-   rgene_gamma = 2 20      * gammaDir prior for rate for genes
-  sigma2_gamma = 1 10      * gammaDir prior for sigma^2     (for clock=2 or 3)
+       BDparas = 1 1 0.1 m * Birth, death, sampling, type of construction
+   rgene_gamma = 2 20      * <shape> <scale> for gammaDir prior for locus rates mu_{i} (rates for genes)
+  sigma2_gamma = 1 10      * <shape> <scale> for gamma prior for sigma_{i}^2, enabled only
+                           * if "clock" equals 2 or 3 
 
-         print = 1        * 0: no mcmc sample; 1: everything except branch rates 2: everything
+         print = 1        * 0: no mcmc sample; 1: everything except branch rates; 2: everything
+                          * -1: do not run MCMC, summarise samples from file specified in "mcmcfile"
+                          *    and map them onto tree file specified in "treefile"
         burnin = 1000     * Number of iterations that will be discarded as part of burn-in
       sampfreq = 100      * Sampling frequency
        nsample = 20000    * Number of samples to be collected
@@ -325,7 +325,7 @@ We can now open `FigTree` and plot the recently created `node_tree.tree` tree fi
 
 As you can see, the following nodes were calibrated:
 
-* `t_n8`: root age, constrained with upper bound `U(1.0)` (maximum age = 1.0; time unit = 100Mya | 100 Mya).
+* `t_n8`: root age, constrained with upper bound `U(1.0)` (maximum age = 1.0; time unit = 100 Mya | 100 Mya).
 * `t_n9`: last common ancestor of great apes (all taxa but gibbon), node constrained with soft bound `B(.12,.16)` (minimum age = 0.12, maximum age = 0.16; time unit = 100 Mya | 12 - 16 Mya).
 * `t_n11`: last common ancestor of human, chimpanzee, and bonobo; node constrained with soft bound `B(.06,.08)` (minimum age = 0.06, maximum age = 0.08; time unit = 100 Mya | 8 Mya).
 
@@ -440,7 +440,7 @@ done
 > ./Combine_MCMC.sh NODAT mcmc_files_mtcdnapri_NODAT "`seq 1 6`" NODAT 20000 Y mtcdnapri_NODAT
 > ```
 >
-> Nevertheless, we have written the full `for` loop in case you want to reuse this script with your data!
+> Nevertheless, we have written the full `for` loop in case you want to reuse this code snippet with your data!
 
 The script above will generate a directory called `mcmc_files_<name_dataset>_NODAT` inside the `00_prior` directory, where the `mcmc.txt` with the concatenated samples will be saved. In addition, a directory called `mcmcf4traces_<namedataset>_NODAT` will also be generated so that formatted MCMC files compatible with programs such as `Tracer` can be used to check for chain convergence.
 
@@ -482,7 +482,7 @@ done
 ```
 
 > [!NOTE]
-> As per the previous code snippet, the `for` loop above would run once because there is only one dataset. Nevertheless, we have written the full `for` loop in case you want to reuse this script with your data!
+> As per the previous code snippet, the `for` loop above would run once because there is only one dataset. Nevertheless, we have written the full `for` loop in case you want to reuse this code snippet with your data!
 
 #### Posterior
 
@@ -574,7 +574,7 @@ done
 > ./Combine_MCMC.sh GBM mcmc_files_mtcdnapri_GBM "`seq 1 6`" GBM 20000 Y mtcdnapri_GBM
 > ```
 >
-> Nevertheless, we have written the full `for` loop in case you want to reuse this script with your data!
+> Nevertheless, we have written the full `for` loop in case you want to reuse this code snippet with your data!
 
 Once the scripts above have finished, directories called `mcmc_files_part_(GBM|ILN)` and `mcmcf4traces` will be created inside `01_posterior/`. To map the mean time estimates with the filtered chains, we will use the dummy control file and dummy alignment file we already used when summarising those samples collected from the prior:
 

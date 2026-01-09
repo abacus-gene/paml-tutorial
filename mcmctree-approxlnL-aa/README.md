@@ -20,7 +20,7 @@ As explained in [Yang et al. (1998)](https://academic.oup.com/mbe/article/15/12/
 * Sumatran orangutan (_Pongo pygmaeus abelii_, X97707)
 * Common gibbon (_Hylobates lar_, X99256).
 
-Please note that we have changed the calibration notation in [our tree file](00_inp_data/mtCDNApri.trees) so that it is clearer which bounds are being used to constrain node ages. We also incorporated the root age in the tree as recommended (i.e., using option `RootAge` in the control file is somewhat discouraged).
+Please note that we have changed the calibration notation in [our tree file](00_inp_data/mtCDNApri.trees) so that it is clearer which bounds are being used to constrain node ages. We also incorporated the root age in the tree as recommended (i.e., using option `RootAge` in the control file is somewhat discouraged when analysing molecular data).
 
 We have saved the input tree and sequence files in directory [`00_inp_data`](00_inp_data). We used the [available control file](https://github.com/abacus-gene/paml/blob/master/examples/DatingSoftBound/mcmctree.ctl) as a template to create our [own template control files for today's analyses](01_ctl_files), which follow the formatting recommended to use in the latest `PAML` release.
 
@@ -87,7 +87,6 @@ We can now stop and take a look at how the control file looks like now:
          ncatG = 5        * Number categories in discrete gamma
          clock = 3        * 1: global clock; 2: independent rates; 3: correlated rates
     aaRatefile = lg.dat   * Path to the file with the LG matrix
-
 
        BDparas = 1 1 0.1 m * Birth, death, sampling, type of construction
    rgene_gamma = 2 20      * <shape> <scale> for gammaDir prior for locus rates mu_{i} (rates for genes)

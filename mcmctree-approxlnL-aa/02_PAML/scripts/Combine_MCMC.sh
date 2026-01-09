@@ -90,7 +90,19 @@ do
 			fi
 		fi
 	fi
-done  
+done
+
+# Renumber the first column sequentially from 1 to N (preserving header)
+# so that programs such as Tracer can be used to summarise the logged
+# samples
+if [[ -f $dirname/mcmc.txt ]]
+then
+    printf "==========================================================\n"
+    printf "\n  ~~> Renumbering the first column sequentially for better subsequent parsing...\n"
+    awk 'BEGIN{OFS="\t"} NR==1 {print; next} {$1=NR-1; print}' $dirname/mcmc.txt > "$dirname/mcmc.txt.tmp" && mv "$dirname/mcmc.txt.tmp" $dirname/mcmc.txt
+    printf "  ~~> First column now goes from 1 to "$(( $(wc -l < $dirname/mcmc.txt) - 1 ))"\n"
+    printf "  ~~> All done now!\n\n"
+fi
 
 # NOTE:
 # After this script, you need to copy dummy aln, ctl file, and tree file 
